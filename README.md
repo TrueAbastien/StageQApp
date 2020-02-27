@@ -1,0 +1,2 @@
+# StageQApp
+Private Qt Application
