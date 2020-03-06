@@ -31,7 +31,7 @@ private:
 
 	QTimer* mTimer;
 	QString buffer;
-	const int msSequenceBreaker = 200;
+	const int msSequenceBreaker = 50;
 
 	void Reset();
 };
