@@ -1,7 +1,12 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_Search.h"
+#include <QKeyEvent>
+#include "ui_QtSquid.h"
+#include "Database.h"
+#include "BarcodeScanner.h"
+
+class Page;
 
 class QtSquid : public QMainWindow
 {
@@ -10,6 +15,26 @@ class QtSquid : public QMainWindow
 public:
 	QtSquid(QWidget *parent = Q_NULLPTR);
 
-private:
 	Ui::QtSquidClass ui;
+	QList<Page*> pages;
+
+	QString __latest_key_pressed;
+	QString __currentQuery = "";
+
+private:
+	Database db;
+	BarcodeScanner bs;
+
+protected:
+	void keyPressEvent(QKeyEvent* evt) override;
+
+private slots:
+
+	void connectDatabase();
+	void runCurrentQuery();
+
+	void writeInEdit();
+
+signals:
+	void key_press();
 };

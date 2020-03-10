@@ -31,9 +31,45 @@
     <ClCompile Include="QtSquid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SearchPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EditPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PermissionPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MySQLTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BarcodeScanner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StyleSheetCache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Page.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Database.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MySQLTable.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="BarcodeScanner.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -43,11 +79,25 @@
     </QtRcc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="Search.ui">
+    <QtUic Include="QtSquid.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="Edit.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SearchPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EditPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PermissionPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StyleSheetCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
