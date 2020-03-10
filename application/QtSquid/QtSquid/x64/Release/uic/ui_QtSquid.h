@@ -24,7 +24,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTableView>
+#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
@@ -41,7 +41,7 @@ public:
     QWidget *verticalLayoutWidget;
     QVBoxLayout *search_VLayout;
     QHBoxLayout *search_HLayout_1;
-    QTableView *search_resultTable;
+    QTableWidget *search_resultTable;
     QVBoxLayout *search_VLayout_1_1;
     QFormLayout *search_FLayout_1_1_1;
     QSpacerItem *verticalSpacer_3;
@@ -121,7 +121,7 @@ public:
         search_HLayout_1 = new QHBoxLayout();
         search_HLayout_1->setSpacing(6);
         search_HLayout_1->setObjectName(QString::fromUtf8("search_HLayout_1"));
-        search_resultTable = new QTableView(verticalLayoutWidget);
+        search_resultTable = new QTableWidget(verticalLayoutWidget);
         search_resultTable->setObjectName(QString::fromUtf8("search_resultTable"));
 
         search_HLayout_1->addWidget(search_resultTable);
@@ -373,7 +373,7 @@ public:
 
         retranslateUi(QtSquidClass);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(QtSquidClass);

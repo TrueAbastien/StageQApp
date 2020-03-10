@@ -1,16 +1,16 @@
 /****************************************************************************
-** Meta object code from reading C++ file 'QtSquid.h'
+** Meta object code from reading C++ file 'BarcodeScanner.h'
 **
 ** Created by: The Qt Meta Object Compiler version 67 (Qt 5.12.7)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../../../QtSquid.h"
+#include "../../../BarcodeScanner.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
-#error "The header file 'QtSquid.h' doesn't include <QObject>."
+#error "The header file 'BarcodeScanner.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
 #error "This file was generated using the moc from 5.12.7. It"
 #error "cannot be used with the include files from this version of Qt."
@@ -20,31 +20,31 @@
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
-struct qt_meta_stringdata_QtSquid_t {
+struct qt_meta_stringdata_BarcodeScanner_t {
     QByteArrayData data[6];
-    char stringdata0[63];
+    char stringdata0[46];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_QtSquid_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_BarcodeScanner_t, stringdata0) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
-static const qt_meta_stringdata_QtSquid_t qt_meta_stringdata_QtSquid = {
+static const qt_meta_stringdata_BarcodeScanner_t qt_meta_stringdata_BarcodeScanner = {
     {
-QT_MOC_LITERAL(0, 0, 7), // "QtSquid"
-QT_MOC_LITERAL(1, 8, 9), // "key_press"
-QT_MOC_LITERAL(2, 18, 0), // ""
-QT_MOC_LITERAL(3, 19, 15), // "connectDatabase"
-QT_MOC_LITERAL(4, 35, 15), // "runCurrentQuery"
-QT_MOC_LITERAL(5, 51, 11) // "writeInEdit"
+QT_MOC_LITERAL(0, 0, 14), // "BarcodeScanner"
+QT_MOC_LITERAL(1, 15, 5), // "print"
+QT_MOC_LITERAL(2, 21, 0), // ""
+QT_MOC_LITERAL(3, 22, 8), // "activate"
+QT_MOC_LITERAL(4, 31, 4), // "scan"
+QT_MOC_LITERAL(5, 36, 9) // "terminate"
 
     },
-    "QtSquid\0key_press\0\0connectDatabase\0"
-    "runCurrentQuery\0writeInEdit"
+    "BarcodeScanner\0print\0\0activate\0scan\0"
+    "terminate"
 };
 #undef QT_MOC_LITERAL
 
-static const uint qt_meta_data_QtSquid[] = {
+static const uint qt_meta_data_BarcodeScanner[] = {
 
  // content:
        8,       // revision
@@ -61,8 +61,8 @@ static const uint qt_meta_data_QtSquid[] = {
        1,    0,   34,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   35,    2, 0x08 /* Private */,
-       4,    0,   36,    2, 0x08 /* Private */,
+       3,    0,   35,    2, 0x0a /* Public */,
+       4,    0,   36,    2, 0x0a /* Public */,
        5,    0,   37,    2, 0x08 /* Private */,
 
  // signals: parameters
@@ -76,23 +76,23 @@ static const uint qt_meta_data_QtSquid[] = {
        0        // eod
 };
 
-void QtSquid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void BarcodeScanner::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<QtSquid *>(_o);
+        auto *_t = static_cast<BarcodeScanner *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->key_press(); break;
-        case 1: _t->connectDatabase(); break;
-        case 2: _t->runCurrentQuery(); break;
-        case 3: _t->writeInEdit(); break;
+        case 0: _t->print(); break;
+        case 1: _t->activate(); break;
+        case 2: _t->scan(); break;
+        case 3: _t->terminate(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (QtSquid::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&QtSquid::key_press)) {
+            using _t = void (BarcodeScanner::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&BarcodeScanner::print)) {
                 *result = 0;
                 return;
             }
@@ -101,32 +101,32 @@ void QtSquid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
     Q_UNUSED(_a);
 }
 
-QT_INIT_METAOBJECT const QMetaObject QtSquid::staticMetaObject = { {
-    &QMainWindow::staticMetaObject,
-    qt_meta_stringdata_QtSquid.data,
-    qt_meta_data_QtSquid,
+QT_INIT_METAOBJECT const QMetaObject BarcodeScanner::staticMetaObject = { {
+    &QObject::staticMetaObject,
+    qt_meta_stringdata_BarcodeScanner.data,
+    qt_meta_data_BarcodeScanner,
     qt_static_metacall,
     nullptr,
     nullptr
 } };
 
 
-const QMetaObject *QtSquid::metaObject() const
+const QMetaObject *BarcodeScanner::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->dynamicMetaObject() : &staticMetaObject;
 }
 
-void *QtSquid::qt_metacast(const char *_clname)
+void *BarcodeScanner::qt_metacast(const char *_clname)
 {
     if (!_clname) return nullptr;
-    if (!strcmp(_clname, qt_meta_stringdata_QtSquid.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_BarcodeScanner.stringdata0))
         return static_cast<void*>(this);
-    return QMainWindow::qt_metacast(_clname);
+    return QObject::qt_metacast(_clname);
 }
 
-int QtSquid::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int BarcodeScanner::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -142,7 +142,7 @@ int QtSquid::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void QtSquid::key_press()
+void BarcodeScanner::print()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }

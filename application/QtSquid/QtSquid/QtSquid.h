@@ -5,6 +5,8 @@
 #include "ui_QtSquid.h"
 #include "Database.h"
 #include "BarcodeScanner.h"
+#include "StyleSheetCache.h"
+
 
 class Page;
 
@@ -24,6 +26,7 @@ public:
 private:
 	Database db;
 	BarcodeScanner bs;
+	StyleSheetCache ssc;
 
 protected:
 	void keyPressEvent(QKeyEvent* evt) override;

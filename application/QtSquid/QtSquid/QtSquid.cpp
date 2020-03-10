@@ -7,7 +7,7 @@
 
 
 QtSquid::QtSquid(QWidget *parent)
-	: QMainWindow(parent), bs(this)
+	: QMainWindow(parent), bs(this), ssc("Ressources/stylesheet")
 {
 	ui.setupUi(this);
 
@@ -21,10 +21,6 @@ QtSquid::QtSquid(QWidget *parent)
 
 	connect(ui.search_scanBtn, SIGNAL(clicked()), &bs, SLOT(activate()));
 	connect(&bs, SIGNAL(print()), this, SLOT(writeInEdit()));
-
-
-	// Style Sheet - TEST
-	// TODO: Style Sheet Cache
 }
 
 void QtSquid::connectDatabase()
