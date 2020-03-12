@@ -55,6 +55,12 @@
     <ClCompile Include="StyleSheetCache.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StyleSheetWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h">
@@ -72,6 +78,21 @@
     <QtMoc Include="BarcodeScanner.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="StyleSheetWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ConnectionPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PermissionPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SearchPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EditPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtSquid.qrc">
@@ -82,21 +103,15 @@
     <QtUic Include="QtSquid.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="StyleSheetWnd.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SearchPage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EditPage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ConnectionPage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PermissionPage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StyleSheetCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

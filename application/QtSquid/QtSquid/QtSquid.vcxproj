@@ -95,13 +95,16 @@
     <ClCompile Include="PermissionPage.cpp" />
     <ClCompile Include="QtSquid.cpp" />
     <ClCompile Include="SearchPage.cpp" />
+    <ClCompile Include="SettingFile.cpp" />
     <ClCompile Include="StyleSheetCache.cpp" />
+    <ClCompile Include="StyleSheetWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h" />
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="QtSquid.ui" />
+    <QtUic Include="StyleSheetWnd.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtSquid.qrc" />
@@ -110,14 +113,16 @@
     <QtMoc Include="Page.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SettingFile.h" />
     <ClInclude Include="StyleSheetCache.h" />
+    <QtMoc Include="StyleSheetWindow.h" />
     <QtMoc Include="BarcodeScanner.h" />
-    <ClInclude Include="ConnectionPage.h" />
+    <QtMoc Include="ConnectionPage.h" />
     <QtMoc Include="Database.h" />
-    <ClInclude Include="EditPage.h" />
+    <QtMoc Include="EditPage.h" />
     <QtMoc Include="MySQLTable.h" />
-    <ClInclude Include="PermissionPage.h" />
-    <ClInclude Include="SearchPage.h" />
+    <QtMoc Include="PermissionPage.h" />
+    <QtMoc Include="SearchPage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

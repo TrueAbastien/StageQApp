@@ -3,9 +3,12 @@
 #include <QtWidgets/QMainWindow>
 #include <QKeyEvent>
 #include "ui_QtSquid.h"
+
 #include "Database.h"
 #include "BarcodeScanner.h"
 #include "StyleSheetCache.h"
+#include "StyleSheetWindow.h"
+#include "SettingFile.h"
 
 
 class Page;
@@ -23,20 +26,25 @@ public:
 	QString __latest_key_pressed;
 	QString __currentQuery = "";
 
+	Database database;
+	BarcodeScanner barcodeScanner;
+	StyleSheetCache styleSheetCache;
+
 private:
-	Database db;
-	BarcodeScanner bs;
-	StyleSheetCache ssc;
+	StyleSheetWindow* styleSheetWindow;
+	SettingFile preferenceData;
 
 protected:
 	void keyPressEvent(QKeyEvent* evt) override;
 
 private slots:
 
-	void connectDatabase();
 	void runCurrentQuery();
 
 	void writeInEdit();
+
+	void openStyleSheetMenu();
+	void changeStyleSheet(QString styleSheet);
 
 signals:
 	void key_press();

@@ -7,7 +7,8 @@
 
 
 QtSquid::QtSquid(QWidget *parent)
-	: QMainWindow(parent), bs(this), ssc("Ressources/stylesheet")
+	: QMainWindow(parent), barcodeScanner(this), styleSheetCache("Ressources/stylesheet"),
+	styleSheetWindow(nullptr), preferenceData("preferences")
 {
 	ui.setupUi(this);
 
@@ -16,23 +17,17 @@ QtSquid::QtSquid(QWidget *parent)
 	pages.append(new ConnectionPage(this));
 	pages.append(new PermissionPage(this));
 
-	connect(ui.conn_runBtn, SIGNAL(clicked()), this, SLOT(connectDatabase()));
 	connect(ui.search_runBtn, SIGNAL(clicked()), this, SLOT(runCurrentQuery()));
 
-	connect(ui.search_scanBtn, SIGNAL(clicked()), &bs, SLOT(activate()));
-	connect(&bs, SIGNAL(print()), this, SLOT(writeInEdit()));
-}
+	connect(ui.search_scanBtn, SIGNAL(clicked()), &barcodeScanner, SLOT(activate()));
+	connect(&barcodeScanner, SIGNAL(print()), this, SLOT(writeInEdit()));
 
-void QtSquid::connectDatabase()
-{
-	if (db.connect("localhost", 3306, "root", "", "testing"))
-	{
-		QMessageBox::information(this, "Connection", "Successfull !");
-	}
-	else
-	{
-		QMessageBox::information(this, "Connection", "Failed: " + db.getLastError());
-	}
+	connect(ui.actionStyleSheet, SIGNAL(triggered()), this, SLOT(openStyleSheetMenu()));
+
+
+	preferenceData.setRules({ "style" });
+	preferenceData.readFile();
+	styleSheetCache.Set(this, preferenceData.get("style"));
 }
 
 void QtSquid::keyPressEvent(QKeyEvent* evt)
@@ -43,7 +38,7 @@ void QtSquid::keyPressEvent(QKeyEvent* evt)
 
 void QtSquid::runCurrentQuery()
 {
-	if (!db.connected())
+	if (!database.connected())
 	{
 		ui.search_outputLabel->setText("Erreur: Connectez vous a la Base de Donnees !");
 		return;
@@ -55,13 +50,32 @@ void QtSquid::runCurrentQuery()
 	}
 	ui.search_outputLabel->setText("Query Successfull !");
 
-	bool call = db.runQuery(__currentQuery);
+	bool call = database.runQuery(__currentQuery);
 	if (!call) return;
 
-	db.computeModel(ui.search_resultTable);
+	database.computeModel(ui.search_resultTable);
 }
 
 void QtSquid::writeInEdit()
 {
-	ui.search_scanEdit->setText(bs.get());
+	ui.search_scanEdit->setText(barcodeScanner.get());
 }
+
+void QtSquid::openStyleSheetMenu()
+{
+	styleSheetWindow = new StyleSheetWindow(this);
+	connect(styleSheetWindow, SIGNAL(pickStyleSheet(QString)), this, SLOT(changeStyleSheet(QString)));
+
+	styleSheetWindow->setContent(&styleSheetCache);
+	styleSheetWindow->setStyleSheet(preferenceData.get("style"));
+	styleSheetWindow->exec();
+}
+
+void QtSquid::changeStyleSheet(QString styleSheet)
+{
+	preferenceData.set("style", styleSheet);
+	styleSheetCache.Set(this, styleSheet);
+
+	preferenceData.writeFile();
+}
+

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>629</width>
+    <width>632</width>
     <height>403</height>
    </rect>
   </property>
@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="Search">
      <attribute name="title">
@@ -40,9 +40,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>0</y>
+        <y>10</y>
         <width>611</width>
-        <height>321</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="search_VLayout">
@@ -110,14 +110,14 @@
             </sizepolicy>
            </property>
            <property name="text">
-            <string>Run</string>
+            <string>Select</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="search_outputLabel">
            <property name="text">
-            <string>text</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -147,9 +147,9 @@
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>-1</y>
+        <y>9</y>
         <width>611</width>
-        <height>321</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="edit_VLayout">
@@ -199,7 +199,7 @@
          <item>
           <widget class="QLabel" name="edit_outputLabel">
            <property name="text">
-            <string>text</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -229,19 +229,100 @@
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>-1</y>
+        <y>9</y>
         <width>611</width>
-        <height>321</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="conn_VLayout">
        <item>
         <layout class="QHBoxLayout" name="conn_HLayout_1">
          <item>
-          <layout class="QFormLayout" name="conn_FLayout_1_1"/>
+          <layout class="QFormLayout" name="conn_FLayout_1_1">
+           <item row="1" column="0">
+            <widget class="QLabel" name="conn_labelAddress">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="text">
+              <string>Address</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="conn_editAddress">
+             <property name="maxLength">
+              <number>32</number>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="conn_labelPort">
+             <property name="text">
+              <string>Port</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="conn_editPort">
+             <property name="contextMenuPolicy">
+              <enum>Qt::NoContextMenu</enum>
+             </property>
+             <property name="maxLength">
+              <number>4</number>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QPushButton" name="conn_btnSaveDatabase">
+             <property name="text">
+              <string>Save</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
-          <layout class="QFormLayout" name="conn_FLayout_1_2"/>
+          <layout class="QFormLayout" name="conn_FLayout_1_2">
+           <item row="2" column="0">
+            <widget class="QLabel" name="conn_labelPassword">
+             <property name="text">
+              <string>Password</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="conn_editPassword">
+             <property name="maxLength">
+              <number>128</number>
+             </property>
+             <property name="echoMode">
+              <enum>QLineEdit::Password</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QPushButton" name="conn_btnSaveUser">
+             <property name="text">
+              <string>Save</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="conn_editUsername">
+             <property name="maxLength">
+              <number>128</number>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="conn_labelUsername">
+             <property name="text">
+              <string>Username</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </item>
@@ -263,14 +344,14 @@
          <item>
           <widget class="QPushButton" name="conn_runBtn">
            <property name="text">
-            <string>Run</string>
+            <string>Connect</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLabel" name="conn_outputLabel">
            <property name="text">
-            <string>text</string>
+            <string/>
            </property>
           </widget>
          </item>
@@ -300,9 +381,9 @@
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>-1</y>
+        <y>9</y>
         <width>611</width>
-        <height>321</height>
+        <height>311</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="perm_VLayout">
@@ -357,7 +438,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>629</width>
+     <width>632</width>
      <height>21</height>
     </rect>
    </property>
@@ -375,6 +456,13 @@
     <property name="title">
      <string>Outils</string>
     </property>
+    <widget class="QMenu" name="menuOptions">
+     <property name="title">
+      <string>Options</string>
+     </property>
+     <addaction name="actionStyleSheet"/>
+    </widget>
+    <addaction name="menuOptions"/>
    </widget>
    <widget class="QMenu" name="menuRaccourcis">
     <property name="title">
@@ -401,6 +489,16 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionStyle">
+   <property name="text">
+    <string>Options</string>
+   </property>
+  </action>
+  <action name="actionStyleSheet">
+   <property name="text">
+    <string>Style</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

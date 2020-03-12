@@ -3,6 +3,8 @@
 
 class SearchPage : public Page
 {
+	Q_OBJECT
+
 public:
 	explicit SearchPage(QtSquid* ref);
 

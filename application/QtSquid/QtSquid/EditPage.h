@@ -3,6 +3,8 @@
 
 class EditPage : public Page
 {
+	Q_OBJECT
+
 public:
 	explicit EditPage(QtSquid* ref);
 

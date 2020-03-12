@@ -3,6 +3,8 @@
 
 class PermissionPage : public Page
 {
+	Q_OBJECT
+
 public:
 	explicit PermissionPage(QtSquid* ref);
 

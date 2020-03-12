@@ -10,7 +10,7 @@ public:
 	void LoadAt(QString dir);
 
 	QStringList AllStyleSheets() const;
-	void Set(QMainWindow* wnd, QString styleName);
+	void Set(QWidget* wdg, QString styleName);
 
 private:
 	QDir stylesheetDirectory;

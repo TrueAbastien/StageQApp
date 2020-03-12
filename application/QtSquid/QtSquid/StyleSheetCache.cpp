@@ -14,7 +14,7 @@ void StyleSheetCache::LoadAt(QString dir)
 
 	foreach(QString file, allStyleSheets)
 	{
-		QFile temporaryFile("Ressources/stylesheet/ManjaroMix.qss");
+		QFile temporaryFile("Ressources/stylesheet/" + file);
 		temporaryFile.open(QFile::ReadOnly);
 		this->insert(file, new QString(QLatin1String(temporaryFile.readAll())));
 	}
@@ -25,8 +25,8 @@ QStringList StyleSheetCache::AllStyleSheets() const
 	return allStyleSheets;
 }
 
-void StyleSheetCache::Set(QMainWindow* wnd, QString styleName)
+void StyleSheetCache::Set(QWidget* wdg, QString styleName)
 {
 	if (this->contains(styleName))
-		wnd->setStyleSheet(*this->object(styleName));
+		wdg->setStyleSheet(*this->object(styleName));
 }

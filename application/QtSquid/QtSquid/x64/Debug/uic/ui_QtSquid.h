@@ -35,6 +35,8 @@ QT_BEGIN_NAMESPACE
 class Ui_QtSquidClass
 {
 public:
+    QAction *actionStyle;
+    QAction *actionStyleSheet;
     QWidget *centralWidget;
     QTabWidget *tabWidget;
     QWidget *Search;
@@ -68,7 +70,17 @@ public:
     QVBoxLayout *conn_VLayout;
     QHBoxLayout *conn_HLayout_1;
     QFormLayout *conn_FLayout_1_1;
+    QLabel *conn_labelAddress;
+    QLineEdit *conn_editAddress;
+    QLabel *conn_labelPort;
+    QLineEdit *conn_editPort;
+    QPushButton *conn_btnSaveDatabase;
     QFormLayout *conn_FLayout_1_2;
+    QLabel *conn_labelPassword;
+    QLineEdit *conn_editPassword;
+    QPushButton *conn_btnSaveUser;
+    QLineEdit *conn_editUsername;
+    QLabel *conn_labelUsername;
     QSpacerItem *verticalSpacer_2;
     QHBoxLayout *conn_HLayout_2;
     QPushButton *conn_runBtn;
@@ -88,6 +100,7 @@ public:
     QMenu *menuFichier;
     QMenu *menuEdition;
     QMenu *menuOutils;
+    QMenu *menuOptions;
     QMenu *menuRaccourcis;
     QMenu *menuAide;
     QToolBar *mainToolBar;
@@ -97,7 +110,11 @@ public:
     {
         if (QtSquidClass->objectName().isEmpty())
             QtSquidClass->setObjectName(QString::fromUtf8("QtSquidClass"));
-        QtSquidClass->resize(629, 403);
+        QtSquidClass->resize(632, 403);
+        actionStyle = new QAction(QtSquidClass);
+        actionStyle->setObjectName(QString::fromUtf8("actionStyle"));
+        actionStyleSheet = new QAction(QtSquidClass);
+        actionStyleSheet->setObjectName(QString::fromUtf8("actionStyleSheet"));
         centralWidget = new QWidget(QtSquidClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -112,7 +129,7 @@ public:
         Search->setObjectName(QString::fromUtf8("Search"));
         verticalLayoutWidget = new QWidget(Search);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 0, 611, 321));
+        verticalLayoutWidget->setGeometry(QRect(0, 10, 611, 311));
         search_VLayout = new QVBoxLayout(verticalLayoutWidget);
         search_VLayout->setSpacing(6);
         search_VLayout->setContentsMargins(11, 11, 11, 11);
@@ -189,7 +206,7 @@ public:
         Edit->setObjectName(QString::fromUtf8("Edit"));
         verticalLayoutWidget_2 = new QWidget(Edit);
         verticalLayoutWidget_2->setObjectName(QString::fromUtf8("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(-1, -1, 611, 321));
+        verticalLayoutWidget_2->setGeometry(QRect(-1, 9, 611, 311));
         edit_VLayout = new QVBoxLayout(verticalLayoutWidget_2);
         edit_VLayout->setSpacing(6);
         edit_VLayout->setContentsMargins(11, 11, 11, 11);
@@ -246,7 +263,7 @@ public:
         Connection->setObjectName(QString::fromUtf8("Connection"));
         verticalLayoutWidget_3 = new QWidget(Connection);
         verticalLayoutWidget_3->setObjectName(QString::fromUtf8("verticalLayoutWidget_3"));
-        verticalLayoutWidget_3->setGeometry(QRect(-1, -1, 611, 321));
+        verticalLayoutWidget_3->setGeometry(QRect(-1, 9, 611, 311));
         conn_VLayout = new QVBoxLayout(verticalLayoutWidget_3);
         conn_VLayout->setSpacing(6);
         conn_VLayout->setContentsMargins(11, 11, 11, 11);
@@ -258,12 +275,69 @@ public:
         conn_FLayout_1_1 = new QFormLayout();
         conn_FLayout_1_1->setSpacing(6);
         conn_FLayout_1_1->setObjectName(QString::fromUtf8("conn_FLayout_1_1"));
+        conn_labelAddress = new QLabel(verticalLayoutWidget_3);
+        conn_labelAddress->setObjectName(QString::fromUtf8("conn_labelAddress"));
+        conn_labelAddress->setFrameShape(QFrame::NoFrame);
+
+        conn_FLayout_1_1->setWidget(1, QFormLayout::LabelRole, conn_labelAddress);
+
+        conn_editAddress = new QLineEdit(verticalLayoutWidget_3);
+        conn_editAddress->setObjectName(QString::fromUtf8("conn_editAddress"));
+        conn_editAddress->setMaxLength(32);
+
+        conn_FLayout_1_1->setWidget(1, QFormLayout::FieldRole, conn_editAddress);
+
+        conn_labelPort = new QLabel(verticalLayoutWidget_3);
+        conn_labelPort->setObjectName(QString::fromUtf8("conn_labelPort"));
+
+        conn_FLayout_1_1->setWidget(2, QFormLayout::LabelRole, conn_labelPort);
+
+        conn_editPort = new QLineEdit(verticalLayoutWidget_3);
+        conn_editPort->setObjectName(QString::fromUtf8("conn_editPort"));
+        conn_editPort->setContextMenuPolicy(Qt::NoContextMenu);
+        conn_editPort->setMaxLength(4);
+
+        conn_FLayout_1_1->setWidget(2, QFormLayout::FieldRole, conn_editPort);
+
+        conn_btnSaveDatabase = new QPushButton(verticalLayoutWidget_3);
+        conn_btnSaveDatabase->setObjectName(QString::fromUtf8("conn_btnSaveDatabase"));
+
+        conn_FLayout_1_1->setWidget(3, QFormLayout::FieldRole, conn_btnSaveDatabase);
+
 
         conn_HLayout_1->addLayout(conn_FLayout_1_1);
 
         conn_FLayout_1_2 = new QFormLayout();
         conn_FLayout_1_2->setSpacing(6);
         conn_FLayout_1_2->setObjectName(QString::fromUtf8("conn_FLayout_1_2"));
+        conn_labelPassword = new QLabel(verticalLayoutWidget_3);
+        conn_labelPassword->setObjectName(QString::fromUtf8("conn_labelPassword"));
+
+        conn_FLayout_1_2->setWidget(2, QFormLayout::LabelRole, conn_labelPassword);
+
+        conn_editPassword = new QLineEdit(verticalLayoutWidget_3);
+        conn_editPassword->setObjectName(QString::fromUtf8("conn_editPassword"));
+        conn_editPassword->setMaxLength(128);
+        conn_editPassword->setEchoMode(QLineEdit::Password);
+
+        conn_FLayout_1_2->setWidget(2, QFormLayout::FieldRole, conn_editPassword);
+
+        conn_btnSaveUser = new QPushButton(verticalLayoutWidget_3);
+        conn_btnSaveUser->setObjectName(QString::fromUtf8("conn_btnSaveUser"));
+
+        conn_FLayout_1_2->setWidget(3, QFormLayout::FieldRole, conn_btnSaveUser);
+
+        conn_editUsername = new QLineEdit(verticalLayoutWidget_3);
+        conn_editUsername->setObjectName(QString::fromUtf8("conn_editUsername"));
+        conn_editUsername->setMaxLength(128);
+
+        conn_FLayout_1_2->setWidget(1, QFormLayout::FieldRole, conn_editUsername);
+
+        conn_labelUsername = new QLabel(verticalLayoutWidget_3);
+        conn_labelUsername->setObjectName(QString::fromUtf8("conn_labelUsername"));
+
+        conn_FLayout_1_2->setWidget(1, QFormLayout::LabelRole, conn_labelUsername);
+
 
         conn_HLayout_1->addLayout(conn_FLayout_1_2);
 
@@ -299,7 +373,7 @@ public:
         Permission->setObjectName(QString::fromUtf8("Permission"));
         verticalLayoutWidget_4 = new QWidget(Permission);
         verticalLayoutWidget_4->setObjectName(QString::fromUtf8("verticalLayoutWidget_4"));
-        verticalLayoutWidget_4->setGeometry(QRect(-1, -1, 611, 321));
+        verticalLayoutWidget_4->setGeometry(QRect(-1, 9, 611, 311));
         perm_VLayout = new QVBoxLayout(verticalLayoutWidget_4);
         perm_VLayout->setSpacing(6);
         perm_VLayout->setContentsMargins(11, 11, 11, 11);
@@ -346,13 +420,15 @@ public:
         QtSquidClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtSquidClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 629, 21));
+        menuBar->setGeometry(QRect(0, 0, 632, 21));
         menuFichier = new QMenu(menuBar);
         menuFichier->setObjectName(QString::fromUtf8("menuFichier"));
         menuEdition = new QMenu(menuBar);
         menuEdition->setObjectName(QString::fromUtf8("menuEdition"));
         menuOutils = new QMenu(menuBar);
         menuOutils->setObjectName(QString::fromUtf8("menuOutils"));
+        menuOptions = new QMenu(menuOutils);
+        menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
         menuRaccourcis = new QMenu(menuBar);
         menuRaccourcis->setObjectName(QString::fromUtf8("menuRaccourcis"));
         menuAide = new QMenu(menuBar);
@@ -370,10 +446,12 @@ public:
         menuBar->addAction(menuOutils->menuAction());
         menuBar->addAction(menuRaccourcis->menuAction());
         menuBar->addAction(menuAide->menuAction());
+        menuOutils->addAction(menuOptions->menuAction());
+        menuOptions->addAction(actionStyleSheet);
 
         retranslateUi(QtSquidClass);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(QtSquidClass);
@@ -382,17 +460,25 @@ public:
     void retranslateUi(QMainWindow *QtSquidClass)
     {
         QtSquidClass->setWindowTitle(QApplication::translate("QtSquidClass", "QtSquid", nullptr));
+        actionStyle->setText(QApplication::translate("QtSquidClass", "Options", nullptr));
+        actionStyleSheet->setText(QApplication::translate("QtSquidClass", "Style", nullptr));
         search_scanBtn->setText(QApplication::translate("QtSquidClass", "Scan", nullptr));
-        search_runBtn->setText(QApplication::translate("QtSquidClass", "Run", nullptr));
-        search_outputLabel->setText(QApplication::translate("QtSquidClass", "text", nullptr));
+        search_runBtn->setText(QApplication::translate("QtSquidClass", "Select", nullptr));
+        search_outputLabel->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Search), QApplication::translate("QtSquidClass", "Search", nullptr));
         edit_addBtn->setText(QApplication::translate("QtSquidClass", "Add", nullptr));
         edit_removeBtn->setText(QApplication::translate("QtSquidClass", "Remove", nullptr));
         edit_runBtn->setText(QApplication::translate("QtSquidClass", "Run", nullptr));
-        edit_outputLabel->setText(QApplication::translate("QtSquidClass", "text", nullptr));
+        edit_outputLabel->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Edit), QApplication::translate("QtSquidClass", "Edit", nullptr));
-        conn_runBtn->setText(QApplication::translate("QtSquidClass", "Run", nullptr));
-        conn_outputLabel->setText(QApplication::translate("QtSquidClass", "text", nullptr));
+        conn_labelAddress->setText(QApplication::translate("QtSquidClass", "Address", nullptr));
+        conn_labelPort->setText(QApplication::translate("QtSquidClass", "Port", nullptr));
+        conn_btnSaveDatabase->setText(QApplication::translate("QtSquidClass", "Save", nullptr));
+        conn_labelPassword->setText(QApplication::translate("QtSquidClass", "Password", nullptr));
+        conn_btnSaveUser->setText(QApplication::translate("QtSquidClass", "Save", nullptr));
+        conn_labelUsername->setText(QApplication::translate("QtSquidClass", "Username", nullptr));
+        conn_runBtn->setText(QApplication::translate("QtSquidClass", "Connect", nullptr));
+        conn_outputLabel->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Connection), QApplication::translate("QtSquidClass", "Connection", nullptr));
         perm_refreshBtn->setText(QApplication::translate("QtSquidClass", "Refresh", nullptr));
         perm_outputLabel->setText(QApplication::translate("QtSquidClass", "text", nullptr));
@@ -400,6 +486,7 @@ public:
         menuFichier->setTitle(QApplication::translate("QtSquidClass", "Fichier", nullptr));
         menuEdition->setTitle(QApplication::translate("QtSquidClass", "Edition", nullptr));
         menuOutils->setTitle(QApplication::translate("QtSquidClass", "Outils", nullptr));
+        menuOptions->setTitle(QApplication::translate("QtSquidClass", "Options", nullptr));
         menuRaccourcis->setTitle(QApplication::translate("QtSquidClass", "Raccourcis", nullptr));
         menuAide->setTitle(QApplication::translate("QtSquidClass", "Aide", nullptr));
     } // retranslateUi
