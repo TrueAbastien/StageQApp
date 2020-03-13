@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>632</width>
-    <height>403</height>
+    <width>637</width>
+    <height>420</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Search">
      <attribute name="title">
@@ -39,7 +39,7 @@
      <widget class="QWidget" name="verticalLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>10</y>
         <width>611</width>
         <height>311</height>
@@ -49,7 +49,11 @@
        <item>
         <layout class="QHBoxLayout" name="search_HLayout_1">
          <item>
-          <widget class="QTableWidget" name="search_resultTable"/>
+          <widget class="QTableWidget" name="search_resultTable">
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+          </widget>
          </item>
          <item>
           <layout class="QVBoxLayout" name="search_VLayout_1_1">
@@ -438,8 +442,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>632</width>
-     <height>21</height>
+     <width>637</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">

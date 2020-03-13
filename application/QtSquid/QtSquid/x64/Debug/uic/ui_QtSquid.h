@@ -110,7 +110,7 @@ public:
     {
         if (QtSquidClass->objectName().isEmpty())
             QtSquidClass->setObjectName(QString::fromUtf8("QtSquidClass"));
-        QtSquidClass->resize(632, 403);
+        QtSquidClass->resize(637, 420);
         actionStyle = new QAction(QtSquidClass);
         actionStyle->setObjectName(QString::fromUtf8("actionStyle"));
         actionStyleSheet = new QAction(QtSquidClass);
@@ -129,7 +129,7 @@ public:
         Search->setObjectName(QString::fromUtf8("Search"));
         verticalLayoutWidget = new QWidget(Search);
         verticalLayoutWidget->setObjectName(QString::fromUtf8("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 10, 611, 311));
+        verticalLayoutWidget->setGeometry(QRect(10, 10, 611, 311));
         search_VLayout = new QVBoxLayout(verticalLayoutWidget);
         search_VLayout->setSpacing(6);
         search_VLayout->setContentsMargins(11, 11, 11, 11);
@@ -140,6 +140,7 @@ public:
         search_HLayout_1->setObjectName(QString::fromUtf8("search_HLayout_1"));
         search_resultTable = new QTableWidget(verticalLayoutWidget);
         search_resultTable->setObjectName(QString::fromUtf8("search_resultTable"));
+        search_resultTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         search_HLayout_1->addWidget(search_resultTable);
 
@@ -420,7 +421,7 @@ public:
         QtSquidClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtSquidClass);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 632, 21));
+        menuBar->setGeometry(QRect(0, 0, 637, 26));
         menuFichier = new QMenu(menuBar);
         menuFichier->setObjectName(QString::fromUtf8("menuFichier"));
         menuEdition = new QMenu(menuBar);
@@ -451,7 +452,7 @@ public:
 
         retranslateUi(QtSquidClass);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(QtSquidClass);

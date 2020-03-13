@@ -15,6 +15,7 @@
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -32,6 +33,7 @@ public:
     QVBoxLayout *style_VLayout;
     QComboBox *style_dropdownMenu;
     QSpacerItem *verticalSpacer_2;
+    QGroupBox *style_GBox_1;
     QFormLayout *style_FLayout_1;
     QPushButton *style_btnTest;
     QLabel *style_labelTest;
@@ -63,30 +65,33 @@ public:
 
         style_VLayout->addItem(verticalSpacer_2);
 
-        style_FLayout_1 = new QFormLayout();
+        style_GBox_1 = new QGroupBox(verticalLayoutWidget);
+        style_GBox_1->setObjectName(QString::fromUtf8("style_GBox_1"));
+        style_GBox_1->setFlat(false);
+        style_FLayout_1 = new QFormLayout(style_GBox_1);
         style_FLayout_1->setObjectName(QString::fromUtf8("style_FLayout_1"));
-        style_btnTest = new QPushButton(verticalLayoutWidget);
+        style_btnTest = new QPushButton(style_GBox_1);
         style_btnTest->setObjectName(QString::fromUtf8("style_btnTest"));
 
         style_FLayout_1->setWidget(0, QFormLayout::LabelRole, style_btnTest);
 
-        style_labelTest = new QLabel(verticalLayoutWidget);
+        style_labelTest = new QLabel(style_GBox_1);
         style_labelTest->setObjectName(QString::fromUtf8("style_labelTest"));
 
         style_FLayout_1->setWidget(0, QFormLayout::FieldRole, style_labelTest);
 
-        style_checkboxTest = new QCheckBox(verticalLayoutWidget);
+        style_checkboxTest = new QCheckBox(style_GBox_1);
         style_checkboxTest->setObjectName(QString::fromUtf8("style_checkboxTest"));
 
         style_FLayout_1->setWidget(1, QFormLayout::LabelRole, style_checkboxTest);
 
-        style_editTest = new QLineEdit(verticalLayoutWidget);
+        style_editTest = new QLineEdit(style_GBox_1);
         style_editTest->setObjectName(QString::fromUtf8("style_editTest"));
 
         style_FLayout_1->setWidget(1, QFormLayout::FieldRole, style_editTest);
 
 
-        style_VLayout->addLayout(style_FLayout_1);
+        style_VLayout->addWidget(style_GBox_1);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 

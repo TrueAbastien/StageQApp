@@ -6,7 +6,7 @@ StyleSheetWindow::StyleSheetWindow(QWidget* parent)
 {
 	ui->setupUi(this);
 
-	connect(ui->style_dropdownMenu, SIGNAL(currentIndexChanged(int)), this, SLOT(changeStyleSheet(int)));
+	connect(ui->style_dropdownMenu, SIGNAL(activated(int)), this, SLOT(changeStyleSheet(int)));
 }
 
 StyleSheetWindow::~StyleSheetWindow()
@@ -18,7 +18,7 @@ void StyleSheetWindow::setContent(StyleSheetCache* cache)
 {
 	this->cache = cache;
 	ui->style_dropdownMenu->clear();
-	ui->style_dropdownMenu->addItem("---", "");
+	ui->style_dropdownMenu->addItem("- Default -", "");
 	foreach (QString styleSheet, cache->AllStyleSheets())
 		ui->style_dropdownMenu->addItem(styleSheet.left(styleSheet.lastIndexOf(QChar('.'))), styleSheet);
 }
@@ -37,9 +37,6 @@ void StyleSheetWindow::setStyleSheet(QString styleSheet)
 
 void StyleSheetWindow::changeStyleSheet(int currentIndex)
 {
-	if (currentIndex == 0)
-		return;
-
 	currentStyleSheet = ui->style_dropdownMenu->itemData(currentIndex).toString();
 	cache->Set(this, currentStyleSheet);
 

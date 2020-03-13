@@ -29,4 +29,6 @@ void StyleSheetCache::Set(QWidget* wdg, QString styleName)
 {
 	if (this->contains(styleName))
 		wdg->setStyleSheet(*this->object(styleName));
+	else if (styleName.isEmpty())
+		wdg->setStyleSheet("");
 }
