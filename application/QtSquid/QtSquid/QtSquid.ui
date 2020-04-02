@@ -58,20 +58,50 @@
          <item>
           <layout class="QVBoxLayout" name="search_VLayout_1_1">
            <item>
-            <layout class="QFormLayout" name="search_FLayout_1_1_1"/>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
+            <widget class="QGroupBox" name="search_GBox_1_1_1">
+             <layout class="QFormLayout" name="search_FLayout_1_1_1">
+              <item row="0" column="1">
+               <widget class="QComboBox" name="search_item_availabilityDropdown">
+                <item>
+                 <property name="text">
+                  <string>All</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Free Only</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Used Only</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="search_item_availabilityLabel">
+                <property name="text">
+                 <string>Type</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QCheckBox" name="search_item_devCheckbox">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="search_item_devLabel">
+                <property name="text">
+                 <string>Expend</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
            </item>
            <item>
             <widget class="QLineEdit" name="search_scanEdit">

@@ -1,5 +1,7 @@
 #pragma once
 #include "Page.h"
+#include "Query.h"
+#include "FileLogger.h"
 
 class SearchPage : public Page
 {
@@ -10,6 +12,11 @@ public:
 
 	void handle() override { }
 
+	~SearchPage();
+
+private:
+	Query* searching = nullptr;
+
 private slots:
-	void ComputeScan(const QString& val);
+	void ComputeScan();
 };

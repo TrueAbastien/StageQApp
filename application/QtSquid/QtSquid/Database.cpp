@@ -28,8 +28,9 @@ bool Database::runQuery(QString query)
 	if (!qstate)
 	{
 		res = mysql_store_result(conn);
+		return true;
 	}
-	return true;
+	return false;
 }
 
 bool Database::computeModel(QTableWidget* wdg)
@@ -55,7 +56,7 @@ QString Database::debug_result()
 	while (row = mysql_fetch_row(res))
 	{
 		for (int ii = 0; ii < size; ++ii)
-			result += QString(row[ii] == NULL ? "NULL" : row[ii]) + ";";
+			result += QString(row[ii] == NULL ? "- none -" : row[ii]) + ";";
 		result += "\n";
 	}
 	return result;

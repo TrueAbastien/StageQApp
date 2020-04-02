@@ -17,7 +17,7 @@ QtSquid::QtSquid(QWidget *parent)
 	pages.append(new ConnectionPage(this));
 	pages.append(new PermissionPage(this));
 
-	connect(ui.search_runBtn, SIGNAL(clicked()), this, SLOT(runCurrentQuery()));
+	connect(ui.search_runBtn, SIGNAL(released()), this, SLOT(runCurrentQuery()));
 
 	connect(ui.search_scanBtn, SIGNAL(clicked()), &barcodeScanner, SLOT(activate()));
 	connect(&barcodeScanner, SIGNAL(print()), this, SLOT(writeInEdit()));

@@ -90,10 +90,12 @@
     <ClCompile Include="ConnectionPage.cpp" />
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="EditPage.cpp" />
+    <ClCompile Include="FileLogger.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MySQLTable.cpp" />
     <ClCompile Include="PermissionPage.cpp" />
     <ClCompile Include="QtSquid.cpp" />
+    <ClCompile Include="Query.cpp" />
     <ClCompile Include="SearchPage.cpp" />
     <ClCompile Include="SettingFile.cpp" />
     <ClCompile Include="StyleSheetCache.cpp" />
@@ -113,6 +115,8 @@
     <QtMoc Include="Page.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileLogger.h" />
+    <ClInclude Include="Query.h" />
     <ClInclude Include="SettingFile.h" />
     <ClInclude Include="StyleSheetCache.h" />
     <QtMoc Include="StyleSheetWindow.h" />

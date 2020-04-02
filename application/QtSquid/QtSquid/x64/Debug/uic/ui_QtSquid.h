@@ -12,7 +12,10 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QFormLayout>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -45,8 +48,12 @@ public:
     QHBoxLayout *search_HLayout_1;
     QTableWidget *search_resultTable;
     QVBoxLayout *search_VLayout_1_1;
+    QGroupBox *search_GBox_1_1_1;
     QFormLayout *search_FLayout_1_1_1;
-    QSpacerItem *verticalSpacer_3;
+    QComboBox *search_item_availabilityDropdown;
+    QLabel *search_item_availabilityLabel;
+    QCheckBox *search_item_devCheckbox;
+    QLabel *search_item_devLabel;
     QLineEdit *search_scanEdit;
     QPushButton *search_scanBtn;
     QHBoxLayout *search_HLayout_2;
@@ -147,15 +154,37 @@ public:
         search_VLayout_1_1 = new QVBoxLayout();
         search_VLayout_1_1->setSpacing(6);
         search_VLayout_1_1->setObjectName(QString::fromUtf8("search_VLayout_1_1"));
-        search_FLayout_1_1_1 = new QFormLayout();
+        search_GBox_1_1_1 = new QGroupBox(verticalLayoutWidget);
+        search_GBox_1_1_1->setObjectName(QString::fromUtf8("search_GBox_1_1_1"));
+        search_FLayout_1_1_1 = new QFormLayout(search_GBox_1_1_1);
         search_FLayout_1_1_1->setSpacing(6);
+        search_FLayout_1_1_1->setContentsMargins(11, 11, 11, 11);
         search_FLayout_1_1_1->setObjectName(QString::fromUtf8("search_FLayout_1_1_1"));
+        search_item_availabilityDropdown = new QComboBox(search_GBox_1_1_1);
+        search_item_availabilityDropdown->addItem(QString());
+        search_item_availabilityDropdown->addItem(QString());
+        search_item_availabilityDropdown->addItem(QString());
+        search_item_availabilityDropdown->setObjectName(QString::fromUtf8("search_item_availabilityDropdown"));
 
-        search_VLayout_1_1->addLayout(search_FLayout_1_1_1);
+        search_FLayout_1_1_1->setWidget(0, QFormLayout::FieldRole, search_item_availabilityDropdown);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        search_item_availabilityLabel = new QLabel(search_GBox_1_1_1);
+        search_item_availabilityLabel->setObjectName(QString::fromUtf8("search_item_availabilityLabel"));
 
-        search_VLayout_1_1->addItem(verticalSpacer_3);
+        search_FLayout_1_1_1->setWidget(0, QFormLayout::LabelRole, search_item_availabilityLabel);
+
+        search_item_devCheckbox = new QCheckBox(search_GBox_1_1_1);
+        search_item_devCheckbox->setObjectName(QString::fromUtf8("search_item_devCheckbox"));
+
+        search_FLayout_1_1_1->setWidget(1, QFormLayout::FieldRole, search_item_devCheckbox);
+
+        search_item_devLabel = new QLabel(search_GBox_1_1_1);
+        search_item_devLabel->setObjectName(QString::fromUtf8("search_item_devLabel"));
+
+        search_FLayout_1_1_1->setWidget(1, QFormLayout::LabelRole, search_item_devLabel);
+
+
+        search_VLayout_1_1->addWidget(search_GBox_1_1_1);
 
         search_scanEdit = new QLineEdit(verticalLayoutWidget);
         search_scanEdit->setObjectName(QString::fromUtf8("search_scanEdit"));
@@ -463,6 +492,13 @@ public:
         QtSquidClass->setWindowTitle(QApplication::translate("QtSquidClass", "QtSquid", nullptr));
         actionStyle->setText(QApplication::translate("QtSquidClass", "Options", nullptr));
         actionStyleSheet->setText(QApplication::translate("QtSquidClass", "Style", nullptr));
+        search_item_availabilityDropdown->setItemText(0, QApplication::translate("QtSquidClass", "All", nullptr));
+        search_item_availabilityDropdown->setItemText(1, QApplication::translate("QtSquidClass", "Free Only", nullptr));
+        search_item_availabilityDropdown->setItemText(2, QApplication::translate("QtSquidClass", "Used Only", nullptr));
+
+        search_item_availabilityLabel->setText(QApplication::translate("QtSquidClass", "Type", nullptr));
+        search_item_devCheckbox->setText(QString());
+        search_item_devLabel->setText(QApplication::translate("QtSquidClass", "Expend", nullptr));
         search_scanBtn->setText(QApplication::translate("QtSquidClass", "Scan", nullptr));
         search_runBtn->setText(QApplication::translate("QtSquidClass", "Select", nullptr));
         search_outputLabel->setText(QString());
