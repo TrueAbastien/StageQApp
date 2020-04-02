@@ -1,5 +1,6 @@
 address=localhost
 port=3306
 username=root
-password=
+password=AwI4LAY=
 database=testing
+db_silent_connect=true

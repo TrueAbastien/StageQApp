@@ -5,10 +5,12 @@
 #include "ConnectionPage.h"
 #include "PermissionPage.h"
 
+#include <QDesktopServices>
+
 
 QtSquid::QtSquid(QWidget *parent)
 	: QMainWindow(parent), barcodeScanner(this), styleSheetCache("Ressources/stylesheet"),
-	styleSheetWindow(nullptr), preferenceData("preferences")
+	styleSheetWindow(nullptr), preferenceData("preferences"), quickLinksData("quicklinks")
 {
 	ui.setupUi(this);
 
@@ -23,6 +25,11 @@ QtSquid::QtSquid(QWidget *parent)
 	connect(&barcodeScanner, SIGNAL(print()), this, SLOT(writeInEdit()));
 
 	connect(ui.actionStyleSheet, SIGNAL(triggered()), this, SLOT(openStyleSheetMenu()));
+
+	quickLinksData.setRules({ "stylesheet","email" });
+	quickLinksData.readFile();
+	connect(ui.actionLink_StyleSheet, &QAction::triggered, [this]() { QDesktopServices::openUrl(QUrl(quickLinksData.get("stylesheet"))); });
+	connect(ui.actionLink_Email, &QAction::triggered, [this]() { QDesktopServices::openUrl(QUrl(quickLinksData.get("email"))); });
 
 
 	preferenceData.setRules({ "style" });

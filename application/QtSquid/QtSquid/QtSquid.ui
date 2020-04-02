@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="Search">
      <attribute name="title">
@@ -52,6 +52,12 @@
           <widget class="QTableWidget" name="search_resultTable">
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="dragEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="sortingEnabled">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -494,7 +500,14 @@
      <property name="title">
       <string>Options</string>
      </property>
+     <widget class="QMenu" name="menuDatabase">
+      <property name="title">
+       <string>Database</string>
+      </property>
+      <addaction name="actionSilentConnect"/>
+     </widget>
      <addaction name="actionStyleSheet"/>
+     <addaction name="menuDatabase"/>
     </widget>
     <addaction name="menuOptions"/>
    </widget>
@@ -507,6 +520,14 @@
     <property name="title">
      <string>Aide</string>
     </property>
+    <widget class="QMenu" name="menuLinks">
+     <property name="title">
+      <string>Links</string>
+     </property>
+     <addaction name="actionLink_StyleSheet"/>
+     <addaction name="actionLink_Email"/>
+    </widget>
+    <addaction name="menuLinks"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuEdition"/>
@@ -531,6 +552,24 @@
   <action name="actionStyleSheet">
    <property name="text">
     <string>Style</string>
+   </property>
+  </action>
+  <action name="actionSilentConnect">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Silent Connection</string>
+   </property>
+  </action>
+  <action name="actionLink_StyleSheet">
+   <property name="text">
+    <string>Stylesheet</string>
+   </property>
+  </action>
+  <action name="actionLink_Email">
+   <property name="text">
+    <string>Email</string>
    </property>
   </action>
  </widget>

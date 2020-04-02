@@ -32,7 +32,7 @@ public:
 
 private:
 	StyleSheetWindow* styleSheetWindow;
-	SettingFile preferenceData;
+	SettingFile preferenceData, quickLinksData;
 
 protected:
 	void keyPressEvent(QKeyEvent* evt) override;

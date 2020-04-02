@@ -59,7 +59,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;$(ProjectDir)vendors;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -75,7 +75,7 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;$(ProjectDir)vendors;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -100,6 +100,7 @@
     <ClCompile Include="SettingFile.cpp" />
     <ClCompile Include="StyleSheetCache.cpp" />
     <ClCompile Include="StyleSheetWindow.cpp" />
+    <ClCompile Include="vendors\SimpleCrypt\SimpleCrypt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h" />
@@ -119,6 +120,7 @@
     <ClInclude Include="Query.h" />
     <ClInclude Include="SettingFile.h" />
     <ClInclude Include="StyleSheetCache.h" />
+    <ClInclude Include="vendors\SimpleCrypt\SimpleCrypt.h" />
     <QtMoc Include="StyleSheetWindow.h" />
     <QtMoc Include="BarcodeScanner.h" />
     <QtMoc Include="ConnectionPage.h" />

@@ -26,4 +26,6 @@ private slots:
 	void saveUserData();
 
 	void writeEditData(QString key);
+
+	void setSilentConnect();
 };

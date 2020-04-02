@@ -40,6 +40,9 @@ class Ui_QtSquidClass
 public:
     QAction *actionStyle;
     QAction *actionStyleSheet;
+    QAction *actionSilentConnect;
+    QAction *actionLink_StyleSheet;
+    QAction *actionLink_Email;
     QWidget *centralWidget;
     QTabWidget *tabWidget;
     QWidget *Search;
@@ -108,8 +111,10 @@ public:
     QMenu *menuEdition;
     QMenu *menuOutils;
     QMenu *menuOptions;
+    QMenu *menuDatabase;
     QMenu *menuRaccourcis;
     QMenu *menuAide;
+    QMenu *menuLinks;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -122,6 +127,13 @@ public:
         actionStyle->setObjectName(QString::fromUtf8("actionStyle"));
         actionStyleSheet = new QAction(QtSquidClass);
         actionStyleSheet->setObjectName(QString::fromUtf8("actionStyleSheet"));
+        actionSilentConnect = new QAction(QtSquidClass);
+        actionSilentConnect->setObjectName(QString::fromUtf8("actionSilentConnect"));
+        actionSilentConnect->setCheckable(true);
+        actionLink_StyleSheet = new QAction(QtSquidClass);
+        actionLink_StyleSheet->setObjectName(QString::fromUtf8("actionLink_StyleSheet"));
+        actionLink_Email = new QAction(QtSquidClass);
+        actionLink_Email->setObjectName(QString::fromUtf8("actionLink_Email"));
         centralWidget = new QWidget(QtSquidClass);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
@@ -148,6 +160,8 @@ public:
         search_resultTable = new QTableWidget(verticalLayoutWidget);
         search_resultTable->setObjectName(QString::fromUtf8("search_resultTable"));
         search_resultTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        search_resultTable->setDragEnabled(true);
+        search_resultTable->setSortingEnabled(true);
 
         search_HLayout_1->addWidget(search_resultTable);
 
@@ -459,10 +473,14 @@ public:
         menuOutils->setObjectName(QString::fromUtf8("menuOutils"));
         menuOptions = new QMenu(menuOutils);
         menuOptions->setObjectName(QString::fromUtf8("menuOptions"));
+        menuDatabase = new QMenu(menuOptions);
+        menuDatabase->setObjectName(QString::fromUtf8("menuDatabase"));
         menuRaccourcis = new QMenu(menuBar);
         menuRaccourcis->setObjectName(QString::fromUtf8("menuRaccourcis"));
         menuAide = new QMenu(menuBar);
         menuAide->setObjectName(QString::fromUtf8("menuAide"));
+        menuLinks = new QMenu(menuAide);
+        menuLinks->setObjectName(QString::fromUtf8("menuLinks"));
         QtSquidClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(QtSquidClass);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -478,10 +496,15 @@ public:
         menuBar->addAction(menuAide->menuAction());
         menuOutils->addAction(menuOptions->menuAction());
         menuOptions->addAction(actionStyleSheet);
+        menuOptions->addAction(menuDatabase->menuAction());
+        menuDatabase->addAction(actionSilentConnect);
+        menuAide->addAction(menuLinks->menuAction());
+        menuLinks->addAction(actionLink_StyleSheet);
+        menuLinks->addAction(actionLink_Email);
 
         retranslateUi(QtSquidClass);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(QtSquidClass);
@@ -492,6 +515,9 @@ public:
         QtSquidClass->setWindowTitle(QApplication::translate("QtSquidClass", "QtSquid", nullptr));
         actionStyle->setText(QApplication::translate("QtSquidClass", "Options", nullptr));
         actionStyleSheet->setText(QApplication::translate("QtSquidClass", "Style", nullptr));
+        actionSilentConnect->setText(QApplication::translate("QtSquidClass", "Silent Connection", nullptr));
+        actionLink_StyleSheet->setText(QApplication::translate("QtSquidClass", "Stylesheet", nullptr));
+        actionLink_Email->setText(QApplication::translate("QtSquidClass", "Email", nullptr));
         search_item_availabilityDropdown->setItemText(0, QApplication::translate("QtSquidClass", "All", nullptr));
         search_item_availabilityDropdown->setItemText(1, QApplication::translate("QtSquidClass", "Free Only", nullptr));
         search_item_availabilityDropdown->setItemText(2, QApplication::translate("QtSquidClass", "Used Only", nullptr));
@@ -524,8 +550,10 @@ public:
         menuEdition->setTitle(QApplication::translate("QtSquidClass", "Edition", nullptr));
         menuOutils->setTitle(QApplication::translate("QtSquidClass", "Outils", nullptr));
         menuOptions->setTitle(QApplication::translate("QtSquidClass", "Options", nullptr));
+        menuDatabase->setTitle(QApplication::translate("QtSquidClass", "Database", nullptr));
         menuRaccourcis->setTitle(QApplication::translate("QtSquidClass", "Raccourcis", nullptr));
         menuAide->setTitle(QApplication::translate("QtSquidClass", "Aide", nullptr));
+        menuLinks->setTitle(QApplication::translate("QtSquidClass", "Links", nullptr));
     } // retranslateUi
 
 };

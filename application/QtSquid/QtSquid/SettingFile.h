@@ -3,13 +3,16 @@
 #include <QMap>
 #include <QDir>
 
+#include <SimpleCrypt/SimpleCrypt.h>
+
 class SettingFile : public QFile
 {
 public:
 	explicit SettingFile(QString file);
 	~SettingFile();
 
-	void setRules(QStringList rules);
+	void setRules(QStringList rules, bool crypted = false);
+	void addRules(QStringList rules, bool crypted = false);
 	void readFile();
 	void writeFile();
 
@@ -19,6 +22,8 @@ public:
 	QString Debug() const;
 
 private:
+	SimpleCrypt crypto;
+
 	QMap<QString, QString> content;
-	QStringList rules;
+	QList<QPair<QString, bool>> rules;
 };

@@ -5,7 +5,7 @@ ConnectionPage::ConnectionPage(QtSquid* ref)
 {
 	connect(wndRef->ui.conn_runBtn, SIGNAL(clicked()), this, SLOT(connectDatabase()));
 
-	databaseData.setRules({ "address","port","username","password","database" });
+	databaseData.setRules({ "address","port","username","$password","database","db_silent_connect" });
 	databaseData.readFile();
 
 	bind("address", wndRef->ui.conn_editAddress, wndRef->ui.conn_labelAddress);
@@ -20,6 +20,11 @@ ConnectionPage::ConnectionPage(QtSquid* ref)
 
 	connect(wndRef->ui.conn_btnSaveDatabase, SIGNAL(clicked()), this, SLOT(saveDatabaseData()));
 	connect(wndRef->ui.conn_btnSaveUser, SIGNAL(clicked()), this, SLOT(saveUserData()));
+
+	connect(wndRef->ui.actionSilentConnect, SIGNAL(triggered()), this, SLOT(setSilentConnect()));
+	wndRef->ui.actionSilentConnect->setChecked(databaseData.get("db_silent_connect").toLower() == "true");
+	if (databaseData.get("db_silent_connect").toLower() == "true")
+		connectDatabase();
 }
 
 void ConnectionPage::bind(QString key, QLineEdit* wdg, QLabel* lab)
@@ -45,6 +50,12 @@ void ConnectionPage::saveUserData()
 void ConnectionPage::writeEditData(QString key)
 {
 	setSaved({ key }, false);
+}
+
+void ConnectionPage::setSilentConnect()
+{
+	databaseData.set("db_silent_connect", wndRef->ui.actionSilentConnect->isChecked() ? "true" : "false");
+	databaseData.writeFile();
 }
 
 void ConnectionPage::writeValue(QStringList keys)

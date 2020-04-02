@@ -9,13 +9,14 @@ SearchPage::SearchPage(QtSquid* ref)
 
 void SearchPage::ComputeScan()
 {
-	searching->set({ "name", "description", "quantity" })->free();
+	searching->set({ "name", "quantity", "description" })->free();
 	if (!wndRef->ui.search_scanEdit->text().isEmpty())
 		searching->where({ "barcode = " + wndRef->ui.search_scanEdit->text() });
+	else searching->add({ "barcode" });
 
 	// Devlopement
 	if (wndRef->ui.search_item_devCheckbox->isChecked())
-		searching->add({ "manufacturer" });
+		searching->add({ "manufacturer", "provider", "restock" });
 
 	// Availibility
 	switch (wndRef->ui.search_item_availabilityDropdown->currentIndex())
