@@ -91,6 +91,7 @@
     <ClCompile Include="Database.cpp" />
     <ClCompile Include="EditPage.cpp" />
     <ClCompile Include="FileLogger.cpp" />
+    <ClCompile Include="ItemCreationWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MySQLTable.cpp" />
     <ClCompile Include="PermissionPage.cpp" />
@@ -106,6 +107,7 @@
     <QtMoc Include="QtSquid.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtUic Include="ItemCreation.ui" />
     <QtUic Include="QtSquid.ui" />
     <QtUic Include="StyleSheetWnd.ui" />
   </ItemGroup>
@@ -117,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileLogger.h" />
+    <QtMoc Include="ItemCreationWindow.h" />
     <ClInclude Include="Query.h" />
     <ClInclude Include="SettingFile.h" />
     <ClInclude Include="StyleSheetCache.h" />

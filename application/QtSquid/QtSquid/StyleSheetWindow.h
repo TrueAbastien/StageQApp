@@ -20,7 +20,7 @@ private:
 	StyleSheetCache* cache;
 	QString currentStyleSheet;
 
-	Ui::Dialog* ui;
+	Ui::Dialog ui;
 
 signals:
 	void pickStyleSheet(QString styleSheet);

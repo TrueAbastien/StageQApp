@@ -1,5 +1,6 @@
 #pragma once
 #include "Page.h"
+#include "ItemCreationWindow.h"
 
 class EditPage : public Page
 {
@@ -9,4 +10,10 @@ public:
 	explicit EditPage(QtSquid* ref);
 
 	void handle() override { }
+
+private:
+	ItemCreationWindow* createWindow;
+
+private slots:
+	void OpenCreationWindow();
 };

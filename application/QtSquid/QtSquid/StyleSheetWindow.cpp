@@ -1,26 +1,25 @@
 #include "StyleSheetWindow.h"
 
 StyleSheetWindow::StyleSheetWindow(QWidget* parent)
-	: QDialog(parent), ui(new Ui::Dialog),
-	currentStyleSheet("")
+	: QDialog(parent), currentStyleSheet("")
 {
-	ui->setupUi(this);
+	ui.setupUi(this);
 
-	connect(ui->style_dropdownMenu, SIGNAL(activated(int)), this, SLOT(changeStyleSheet(int)));
+	connect(ui.style_dropdownMenu, SIGNAL(activated(int)), this, SLOT(changeStyleSheet(int)));
 }
 
 StyleSheetWindow::~StyleSheetWindow()
 {
-	delete ui;
+	//delete ui;
 }
 
 void StyleSheetWindow::setContent(StyleSheetCache* cache)
 {
 	this->cache = cache;
-	ui->style_dropdownMenu->clear();
-	ui->style_dropdownMenu->addItem("- Default -", "");
+	ui.style_dropdownMenu->clear();
+	ui.style_dropdownMenu->addItem("- Default -", "");
 	foreach (QString styleSheet, cache->AllStyleSheets())
-		ui->style_dropdownMenu->addItem(styleSheet.left(styleSheet.lastIndexOf(QChar('.'))), styleSheet);
+		ui.style_dropdownMenu->addItem(styleSheet.left(styleSheet.lastIndexOf(QChar('.'))), styleSheet);
 }
 
 void StyleSheetWindow::setStyleSheet(QString styleSheet)
@@ -30,14 +29,14 @@ void StyleSheetWindow::setStyleSheet(QString styleSheet)
 	for (int ii = 0; ii < size; ++ii)
 		if (sheets[ii] == styleSheet)
 		{
-			this->ui->style_dropdownMenu->setCurrentIndex(ii + 1);
+			ui.style_dropdownMenu->setCurrentIndex(ii + 1);
 			return;
 		}
 }
 
 void StyleSheetWindow::changeStyleSheet(int currentIndex)
 {
-	currentStyleSheet = ui->style_dropdownMenu->itemData(currentIndex).toString();
+	currentStyleSheet = ui.style_dropdownMenu->itemData(currentIndex).toString();
 	cache->Set(this, currentStyleSheet);
 
 	emit pickStyleSheet(currentStyleSheet);

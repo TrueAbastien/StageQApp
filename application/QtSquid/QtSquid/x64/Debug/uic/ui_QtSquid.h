@@ -25,6 +25,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
@@ -66,12 +67,16 @@ public:
     QWidget *Edit;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *edit_VLayout;
-    QHBoxLayout *edit_HLayout_2;
+    QHBoxLayout *edit_HLayout_1;
     QPushButton *edit_addBtn;
     QPushButton *edit_removeBtn;
-    QFormLayout *edit_FLayout_1;
+    QFormLayout *edit_FLayout_3;
+    QLabel *edit_form_barcodeLabel;
+    QLineEdit *edit_form_barcodeEdit;
+    QSpinBox *edit_form_qtySpinbox;
+    QLabel *edit_form_qtyLabel;
     QSpacerItem *verticalSpacer;
-    QHBoxLayout *edit_HLayout_3;
+    QHBoxLayout *edit_HLayout_2;
     QPushButton *edit_runBtn;
     QLabel *edit_outputLabel;
     QSpacerItem *horizontalSpacer_3;
@@ -256,51 +261,71 @@ public:
         edit_VLayout->setContentsMargins(11, 11, 11, 11);
         edit_VLayout->setObjectName(QString::fromUtf8("edit_VLayout"));
         edit_VLayout->setContentsMargins(0, 0, 0, 0);
-        edit_HLayout_2 = new QHBoxLayout();
-        edit_HLayout_2->setSpacing(6);
-        edit_HLayout_2->setObjectName(QString::fromUtf8("edit_HLayout_2"));
+        edit_HLayout_1 = new QHBoxLayout();
+        edit_HLayout_1->setSpacing(6);
+        edit_HLayout_1->setObjectName(QString::fromUtf8("edit_HLayout_1"));
         edit_addBtn = new QPushButton(verticalLayoutWidget_2);
         edit_addBtn->setObjectName(QString::fromUtf8("edit_addBtn"));
 
-        edit_HLayout_2->addWidget(edit_addBtn);
+        edit_HLayout_1->addWidget(edit_addBtn);
 
         edit_removeBtn = new QPushButton(verticalLayoutWidget_2);
         edit_removeBtn->setObjectName(QString::fromUtf8("edit_removeBtn"));
 
-        edit_HLayout_2->addWidget(edit_removeBtn);
+        edit_HLayout_1->addWidget(edit_removeBtn);
 
 
-        edit_VLayout->addLayout(edit_HLayout_2);
+        edit_VLayout->addLayout(edit_HLayout_1);
 
-        edit_FLayout_1 = new QFormLayout();
-        edit_FLayout_1->setSpacing(6);
-        edit_FLayout_1->setObjectName(QString::fromUtf8("edit_FLayout_1"));
+        edit_FLayout_3 = new QFormLayout();
+        edit_FLayout_3->setSpacing(6);
+        edit_FLayout_3->setObjectName(QString::fromUtf8("edit_FLayout_3"));
+        edit_form_barcodeLabel = new QLabel(verticalLayoutWidget_2);
+        edit_form_barcodeLabel->setObjectName(QString::fromUtf8("edit_form_barcodeLabel"));
 
-        edit_VLayout->addLayout(edit_FLayout_1);
+        edit_FLayout_3->setWidget(0, QFormLayout::LabelRole, edit_form_barcodeLabel);
+
+        edit_form_barcodeEdit = new QLineEdit(verticalLayoutWidget_2);
+        edit_form_barcodeEdit->setObjectName(QString::fromUtf8("edit_form_barcodeEdit"));
+
+        edit_FLayout_3->setWidget(0, QFormLayout::FieldRole, edit_form_barcodeEdit);
+
+        edit_form_qtySpinbox = new QSpinBox(verticalLayoutWidget_2);
+        edit_form_qtySpinbox->setObjectName(QString::fromUtf8("edit_form_qtySpinbox"));
+
+        edit_FLayout_3->setWidget(1, QFormLayout::FieldRole, edit_form_qtySpinbox);
+
+        edit_form_qtyLabel = new QLabel(verticalLayoutWidget_2);
+        edit_form_qtyLabel->setObjectName(QString::fromUtf8("edit_form_qtyLabel"));
+
+        edit_FLayout_3->setWidget(1, QFormLayout::LabelRole, edit_form_qtyLabel);
+
+
+        edit_VLayout->addLayout(edit_FLayout_3);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         edit_VLayout->addItem(verticalSpacer);
 
-        edit_HLayout_3 = new QHBoxLayout();
-        edit_HLayout_3->setSpacing(6);
-        edit_HLayout_3->setObjectName(QString::fromUtf8("edit_HLayout_3"));
+        edit_HLayout_2 = new QHBoxLayout();
+        edit_HLayout_2->setSpacing(6);
+        edit_HLayout_2->setObjectName(QString::fromUtf8("edit_HLayout_2"));
         edit_runBtn = new QPushButton(verticalLayoutWidget_2);
         edit_runBtn->setObjectName(QString::fromUtf8("edit_runBtn"));
 
-        edit_HLayout_3->addWidget(edit_runBtn);
+        edit_HLayout_2->addWidget(edit_runBtn);
 
         edit_outputLabel = new QLabel(verticalLayoutWidget_2);
         edit_outputLabel->setObjectName(QString::fromUtf8("edit_outputLabel"));
 
-        edit_HLayout_3->addWidget(edit_outputLabel);
+        edit_HLayout_2->addWidget(edit_outputLabel);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        edit_HLayout_3->addItem(horizontalSpacer_3);
+        edit_HLayout_2->addItem(horizontalSpacer_3);
 
 
-        edit_VLayout->addLayout(edit_HLayout_3);
+        edit_VLayout->addLayout(edit_HLayout_2);
 
         tabWidget->addTab(Edit, QString());
         Connection = new QWidget();
@@ -531,6 +556,8 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(Search), QApplication::translate("QtSquidClass", "Search", nullptr));
         edit_addBtn->setText(QApplication::translate("QtSquidClass", "Add", nullptr));
         edit_removeBtn->setText(QApplication::translate("QtSquidClass", "Remove", nullptr));
+        edit_form_barcodeLabel->setText(QApplication::translate("QtSquidClass", "Barcode", nullptr));
+        edit_form_qtyLabel->setText(QApplication::translate("QtSquidClass", "Quantity", nullptr));
         edit_runBtn->setText(QApplication::translate("QtSquidClass", "Run", nullptr));
         edit_outputLabel->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Edit), QApplication::translate("QtSquidClass", "Edit", nullptr));

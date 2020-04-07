@@ -194,7 +194,7 @@
       </property>
       <layout class="QVBoxLayout" name="edit_VLayout">
        <item>
-        <layout class="QHBoxLayout" name="edit_HLayout_2">
+        <layout class="QHBoxLayout" name="edit_HLayout_1">
          <item>
           <widget class="QPushButton" name="edit_addBtn">
            <property name="text">
@@ -212,7 +212,28 @@
         </layout>
        </item>
        <item>
-        <layout class="QFormLayout" name="edit_FLayout_1"/>
+        <layout class="QFormLayout" name="edit_FLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="edit_form_barcodeLabel">
+           <property name="text">
+            <string>Barcode</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="edit_form_barcodeEdit"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QSpinBox" name="edit_form_qtySpinbox"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="edit_form_qtyLabel">
+           <property name="text">
+            <string>Quantity</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
         <spacer name="verticalSpacer">
@@ -228,7 +249,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="edit_HLayout_3">
+        <layout class="QHBoxLayout" name="edit_HLayout_2">
          <item>
           <widget class="QPushButton" name="edit_runBtn">
            <property name="text">

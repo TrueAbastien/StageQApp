@@ -70,6 +70,9 @@
     <ClCompile Include="vendors\SimpleCrypt\SimpleCrypt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ItemCreationWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h">
@@ -102,6 +105,9 @@
     <QtMoc Include="EditPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ItemCreationWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtSquid.qrc">
@@ -113,6 +119,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="StyleSheetWnd.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ItemCreation.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

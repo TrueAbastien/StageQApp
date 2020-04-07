@@ -24,7 +24,17 @@
 
 Query* Query::Select(QString view)
 {
-	return new Query("SELECT /fields FROM " + view + " WHERE /conditions");
+	return new Query(Type::SELECT, "SELECT /fields FROM " + view + " WHERE (/conditions)");
+}
+
+Query* Query::Insert(QString table)
+{
+	return new Query(Type::INSERT, "INSERT INTO " + table + " (/fields) VALUES /values");
+}
+
+Query* Query::Update(QString table)
+{
+	return new Query(Type::UPDATE, "UPDATE " + table + " SET /fieldValues WHERE (/conditions)");
 }
 
 Query* Query::set(QStringList fields)
@@ -63,17 +73,75 @@ Query* Query::free()
 	return this;
 }
 
+Query* Query::addValues(QStringList values)
+{
+	values.append(values);
+	return this;
+}
+
+Query* Query::setValues(QStringList values)
+{
+	values.clear();
+	return addValues(values);
+}
+
+Query* Query::removeValues(QStringList values)
+{
+	foreach(QString val, values)
+		values.removeOne(val);
+	return this;
+}
+
 QString Query::get(QString order)
 {
 	if (fields.isEmpty())
 		return "";
+	QString result = QString(content), pValues = "";
+	QStringList parseValues;
 
-	QString result = QString(content);
-	result.replace("/fields", fields.join(", ")).replace("/conditions", conditions.join(" AND "));
-	return result + (order.isEmpty() ? "" : (" ORDER BY " + order));
+	switch (type)
+	{
+	case SELECT: // SELECT Command
+		result.replace("/fields", fields.join(", "))
+			.replace("/conditions", conditions.join(" AND "));
+		return result + (order.isEmpty() ? "" : (" ORDER BY " + order));
+		break;
+
+	case INSERT: // INSERT Command
+		if (values.isEmpty() || values.size() % fields.size())
+			return "";
+		result.replace("/fields", fields.join(", "));
+		for (int ii = 0; ii < values.size(); ii += fields.size())
+		{
+			parseValues.clear();
+			for (int jj = ii; jj < ii + fields.size(); ++jj)
+				parseValues.push_back(values[jj]);
+			pValues.push_back("(/vals), ");
+			pValues.replace("/vals", parseValues.join(", "));
+		}
+		pValues.resize(pValues.size() - 2);
+		return content.replace("/values", pValues);
+		break;
+
+	case UPDATE: // UPDATE Command
+		if (values.isEmpty() || values.size() != fields.size())
+			return "";
+		for (int ii = 0; ii < fields.size(); ++ii)
+			parseValues.push_back(fields[ii] + " = " + values[ii]);
+		return result.replace("/fieldValues", parseValues.join(", "))
+			.replace("/conditions", conditions.join(" AND "));
+		break;
+
+	default: return "";
+	}
 }
 
-Query::Query(QString content)
-	: content(content), fields(0), conditions({ "1=1" })
+QString Query::toValue(QString& str)
+{
+	return "'" + str + "'";
+}
+
+Query::Query(Type _type, QString _content)
+	: type(_type), content(_content), fields(0), conditions({ "1=1" }), values(0)
 {
 }
