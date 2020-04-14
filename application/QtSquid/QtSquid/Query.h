@@ -18,6 +18,7 @@ public:
 	Query* where(QStringList conditions);
 	Query* free();
 
+	Query* clearValues();
 	Query* addValues(QStringList values);
 	Query* setValues(QStringList values);
 	Query* removeValues(QStringList values);

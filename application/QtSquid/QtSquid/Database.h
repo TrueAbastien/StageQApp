@@ -22,6 +22,10 @@ private:
 
 	MySQLTable* table;
 
+	QString latestCSVResults;
+	QMap<QString, QStringList> latestTableResults;
+	bool processedTable = false;
+
 public:
 	Database();
 	~Database();
@@ -33,5 +37,7 @@ public:
 
 	bool runQuery(QString query);
 	bool computeModel(QTableWidget* wdg);
-	QString debug_result();
+
+	QMap<QString, QStringList> result();
+	QString CSVresults();
 };

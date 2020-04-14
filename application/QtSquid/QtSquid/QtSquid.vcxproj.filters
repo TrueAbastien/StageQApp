@@ -73,6 +73,9 @@
     <ClCompile Include="ItemCreationWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QStringHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h">
@@ -139,6 +142,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="vendors\SimpleCrypt\SimpleCrypt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QStringHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

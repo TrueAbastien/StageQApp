@@ -7,7 +7,7 @@ bool MySQLTable::input(Database* db)
 		return false;
 	content.clear();
 
-	QStringList rawContent = db->debug_result().split("\n"), row;
+	QStringList rawContent = db->CSVresults().split("\n"), row;
 	if (rawContent.isEmpty())
 		return false;
 

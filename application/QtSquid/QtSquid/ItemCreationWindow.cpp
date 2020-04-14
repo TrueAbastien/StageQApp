@@ -1,42 +1,62 @@
 #include "ItemCreationWindow.h"
 
-ItemCreationWindow::ItemCreationWindow(QWidget* parent)
+ItemCreationWindow::ItemCreationWindow(QtSquid* parent)
 	: QDialog(parent)
 {
 	ui.setupUi(this);
+	app = parent;
+
 	insertItem = Query::Insert("item");
+	insertEquipment = Query::Insert("equipment");
+	selectItemID = Query::Select("item")->set({ "id" });
 
 	connect(ui.okButton, SIGNAL(pressed()), this, SLOT(CreateItem()));
 
-	// TODO: SETUP COMBOBOXES (contact + category)
+	// Contact Setup
+	app->database.runQuery(Query::Select("contact")->set({ "name" })->get());
+	ui.form_contactCB->addItem("---");
+	foreach(QString contact, app->database.result().value("name"))
+		ui.form_contactCB->addItem(contact);
+
+	// Category Setup
+	app->database.runQuery(Query::Select("category")->set({ "name" })->get());
+	ui.form_categoryCB->addItem("---");
+	foreach(QString category, app->database.result().value("name"))
+		ui.form_categoryCB->addItem(category);
+
+	// Default Values
+	ui.form_barcodeEdit->setText(app->ui.edit_form_barcodeEdit->text());
+	ui.form_quantitySpinbox->setValue(app->ui.edit_form_qtySpinbox->value());
 }
 
 ItemCreationWindow::~ItemCreationWindow()
 {
 	delete insertItem;
+	delete insertEquipment;
+	delete selectItemID;
 }
 
 void ItemCreationWindow::CreateItem()
 {
-	insertItem->set({ "name","barcode","restock","category_id" });
+	insertItem->set({ "name","barcode","restock","category_id" })->clearValues();
+	insertEquipment->set({ "quantity", "item_id" })->clearValues();
+	selectItemID->free();
 
-	// TODO: process quantity
-	
 	if (ui.form_nameEdit->text().isEmpty())
-		ui.form_nameEdit->setText("ERROR: Name is recquiered.");
+		ui.outputLabel->setText(QStringHelper::Error("Name is required."));
 	else if (ui.form_barcodeEdit->text().isEmpty())
-		ui.outputLabel->setText("ERROR: Barcode is missing !");
-	/*else if (ui.form_restockSpinbox->value() > 0)
-		ui.outputLabel->setText("ERROR: Restock must be above 0.");*/
-	else if (ui.form_categoryCB->currentIndex() == 0)
-		ui.outputLabel->setText("ERROR: You have to pick a Category !");
+		ui.outputLabel->setText(QStringHelper::Error("Barcode is missing !"));
+	else if (ui.form_quantitySpinbox->value() < ui.form_restockSpinbox->value())
+		ui.outputLabel->setText(QStringHelper::Error("Quantity is lower than Restock..."));
+	else if (ui.form_categoryCB->currentIndex() <= 0)
+		ui.outputLabel->setText(QStringHelper::Error("You have to pick a Category !"));
 	else
 	{
 		insertItem->addValues({
 			Query::toValue(ui.form_nameEdit->text()),
 			Query::toValue(ui.form_barcodeEdit->text()),
-			QString(ui.form_restockSpinbox->value()),
-			QString(ui.form_categoryCB->currentIndex()) });
+			QString::number(ui.form_restockSpinbox->value()),
+			QString::number(ui.form_categoryCB->currentIndex()) });
 
 		if (!ui.form_manufacturerEdit->text().isEmpty())
 		{
@@ -53,15 +73,23 @@ void ItemCreationWindow::CreateItem()
 			insertItem->add({ "description" });
 			insertItem->addValues({ Query::toValue(ui.form_descriptionEdit->toPlainText()) });
 		}
-		if (ui.form_contactCB->currentIndex() != 0)
+		if (ui.form_contactCB->currentIndex() > 0)
 		{
 			insertItem->add({ "contact_id" });
-			insertItem->addValues({ QString(ui.form_contactCB->currentIndex()) });
+			insertItem->addValues({ QString::number(ui.form_contactCB->currentIndex()) });
 		}
 
-		// TODO:
-		// Run query
-		// ADD QTTY AND EQUIPMENT
-		// close window
+		if (app->database.runQuery(insertItem->get()))
+		{
+			selectItemID->where({ "barcode = " + Query::toValue(ui.form_barcodeEdit->text()) });
+			if (app->database.runQuery(selectItemID->get()))
+			{
+				insertEquipment->addValues({ QString::number(ui.form_quantitySpinbox->value()), app->database.result().value("id")[0] });
+				if (app->database.runQuery(insertEquipment->get()))
+				{
+					this->close();
+				}
+			}
+		}
 	}
 }

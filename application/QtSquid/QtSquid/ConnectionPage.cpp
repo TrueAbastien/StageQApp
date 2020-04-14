@@ -1,4 +1,5 @@
 #include "ConnectionPage.h"
+#include "QStringHelper.h"
 
 ConnectionPage::ConnectionPage(QtSquid* ref)
 	: Page(ref), databaseData("database")
@@ -81,13 +82,13 @@ void ConnectionPage::connectDatabase()
 	if (wndRef->database.connect(databaseData.get("address"), databaseData.get("port").toInt(),
 		databaseData.get("username"), databaseData.get("password"), databaseData.get("database")))
 	{
-		wndRef->ui.conn_outputLabel->setText("Connection Successfull !");
+		wndRef->ui.conn_outputLabel->setText(QStringHelper::Success("Connection Successfull !"));
 	}
 	else
 	{
 		QString errorMsg = wndRef->database.getLastError();
 		if (errorMsg.isEmpty())
-			wndRef->ui.conn_outputLabel->setText("You are already connected...");
-		else wndRef->ui.conn_outputLabel->setText("Error: Connection Failed, " + wndRef->database.getLastError() + ".");
+			wndRef->ui.conn_outputLabel->setText(QStringHelper::Info("You are already connected..."));
+		else wndRef->ui.conn_outputLabel->setText(QStringHelper::Error("Connection Failed, " + wndRef->database.getLastError() + "."));
 	}
 }

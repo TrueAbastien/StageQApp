@@ -28,6 +28,26 @@ bool Database::runQuery(QString query)
 	if (!qstate)
 	{
 		res = mysql_store_result(conn);
+
+		if (query.contains("SELECT"))
+		{
+			latestCSVResults = "";
+			int size = 0;
+			while (field = mysql_fetch_field(res))
+			{
+				latestCSVResults += QString(field->name) + ";";
+				size++;
+			}
+			latestCSVResults += "\n";
+			while (row = mysql_fetch_row(res))
+			{
+				for (int ii = 0; ii < size; ++ii)
+					latestCSVResults += QString(row[ii] == NULL ? "- none -" : row[ii]) + ";";
+				latestCSVResults += "\n";
+			}
+			processedTable = false;
+		}
+
 		return true;
 	}
 	return false;
@@ -43,23 +63,37 @@ bool Database::computeModel(QTableWidget* wdg)
 	return result;
 }
 
-QString Database::debug_result()
+QMap<QString, QStringList> Database::result()
 {
-	QString result = "";
-	int size = 0;
-	while (field = mysql_fetch_field(res))
+	if (!processedTable)
 	{
-		result += QString(field->name) + ";";
-		size++;
+		QList<QStringList> listContent;
+		foreach(QString row, CSVresults().split("\n"))
+			listContent.append(row.left(row.size() - 1).split(";"));
+		listContent.removeLast();
+
+		latestTableResults.clear();
+		QStringList values;
+		int size = listContent.size(), count = 0;
+		foreach(QString key, listContent[0])
+		{
+			values.clear();
+			for (int ii = 1; ii < size; ++ii)
+				values.push_back(listContent[ii][count]);
+			latestTableResults.insert(key, values);
+			count++;
+		}
+
+		processedTable = true;
 	}
-	result += "\n";
-	while (row = mysql_fetch_row(res))
-	{
-		for (int ii = 0; ii < size; ++ii)
-			result += QString(row[ii] == NULL ? "- none -" : row[ii]) + ";";
-		result += "\n";
-	}
-	return result;
+	return latestTableResults;
+
+	
+}
+
+QString Database::CSVresults()
+{
+	return latestCSVResults;
 }
 
 bool Database::connect(QString ip, int port, QString username, QString password, QString dbName)

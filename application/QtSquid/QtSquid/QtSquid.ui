@@ -236,6 +236,58 @@
         </layout>
        </item>
        <item>
+        <layout class="QHBoxLayout" name="edit_HLayout_4">
+         <item>
+          <widget class="QPushButton" name="edit_setBtn">
+           <property name="text">
+            <string>Set</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="edit_takeBtn">
+           <property name="text">
+            <string>Take</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QFormLayout" name="edit_FLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="edit_form_numberLabel">
+           <property name="text">
+            <string>Number</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="edit_form_roomLabel">
+           <property name="text">
+            <string>Room</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="edit_form_typeLabel">
+           <property name="text">
+            <string>Type</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="edit_form_typeCB"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="edit_form_numberSpinbox"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="edit_form_roomEdit"/>
+         </item>
+        </layout>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>

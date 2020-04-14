@@ -95,6 +95,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MySQLTable.cpp" />
     <ClCompile Include="PermissionPage.cpp" />
+    <ClCompile Include="QStringHelper.cpp" />
     <ClCompile Include="QtSquid.cpp" />
     <ClCompile Include="Query.cpp" />
     <ClCompile Include="SearchPage.cpp" />
@@ -120,6 +121,7 @@
   <ItemGroup>
     <ClInclude Include="FileLogger.h" />
     <QtMoc Include="ItemCreationWindow.h" />
+    <ClInclude Include="QStringHelper.h" />
     <ClInclude Include="Query.h" />
     <ClInclude Include="SettingFile.h" />
     <ClInclude Include="StyleSheetCache.h" />

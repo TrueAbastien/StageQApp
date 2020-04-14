@@ -1,6 +1,8 @@
 #pragma once
 #include "Page.h"
 #include "ItemCreationWindow.h"
+#include "Query.h"
+#include "QStringHelper.h"
 
 class EditPage : public Page
 {
@@ -13,7 +15,12 @@ public:
 
 private:
 	ItemCreationWindow* createWindow;
+	Query* selectItemID, *updateEquipmentQty, *selectEquipmentQty;
+
+	bool isItemUpdatable();
+	void OpenCreationWindow();
 
 private slots:
-	void OpenCreationWindow();
+	void AddElements();
+	void RemoveElements();
 };

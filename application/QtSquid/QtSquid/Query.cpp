@@ -73,22 +73,28 @@ Query* Query::free()
 	return this;
 }
 
+Query* Query::clearValues()
+{
+	this->values.clear();
+	return this;
+}
+
 Query* Query::addValues(QStringList values)
 {
-	values.append(values);
+	this->values.append(values);
 	return this;
 }
 
 Query* Query::setValues(QStringList values)
 {
-	values.clear();
+	this->values.clear();
 	return addValues(values);
 }
 
 Query* Query::removeValues(QStringList values)
 {
 	foreach(QString val, values)
-		values.removeOne(val);
+		this->values.removeOne(val);
 	return this;
 }
 
@@ -120,7 +126,7 @@ QString Query::get(QString order)
 			pValues.replace("/vals", parseValues.join(", "));
 		}
 		pValues.resize(pValues.size() - 2);
-		return content.replace("/values", pValues);
+		return result.replace("/values", pValues);
 		break;
 
 	case UPDATE: // UPDATE Command
@@ -142,6 +148,6 @@ QString Query::toValue(QString& str)
 }
 
 Query::Query(Type _type, QString _content)
-	: type(_type), content(_content), fields(0), conditions({ "1=1" }), values(0)
+	: type(_type), content(_content), fields({}), conditions({ "1=1" }), values({})
 {
 }
