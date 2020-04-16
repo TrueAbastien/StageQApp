@@ -23,9 +23,6 @@ public:
 	Ui::QtSquidClass ui;
 	QList<Page*> pages;
 
-	QString __latest_key_pressed;
-	QString __currentQuery = "";
-
 	Database database;
 	BarcodeScanner barcodeScanner;
 	StyleSheetCache styleSheetCache;
@@ -38,14 +35,9 @@ protected:
 	void keyPressEvent(QKeyEvent* evt) override;
 
 private slots:
-
-	void runCurrentQuery();
-
-	void writeInEdit();
-
 	void openStyleSheetMenu();
 	void changeStyleSheet(QString styleSheet);
 
 signals:
-	void key_press();
+	void key_press(QString);
 };

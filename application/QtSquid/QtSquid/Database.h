@@ -5,6 +5,8 @@
 #include <mysql.h>
 #include <QTableWidget>
 
+#include "Query.h"
+
 class MySQLTable;
 
 class Database : public QObject
@@ -35,9 +37,13 @@ public:
 	bool connect(QString ip, int port, QString username, QString password, QString dbName);
 	QString getLastError() const;
 
-	bool runQuery(QString query);
+	bool runQuery(Query* query, QString order = "");
+	bool runRawQuery(QString query, bool compute = true);
 	bool computeModel(QTableWidget* wdg);
 
 	QMap<QString, QStringList> result();
 	QString CSVresults();
+
+signals:
+	void successfulConnection();
 };

@@ -37,6 +37,11 @@ Query* Query::Update(QString table)
 	return new Query(Type::UPDATE, "UPDATE " + table + " SET /fieldValues WHERE (/conditions)");
 }
 
+Query* Query::Delete(QString table)
+{
+	return new Query(Type::qDELETE, "DELETE FROM " + table + " WHERE (/conditions)");
+}
+
 Query* Query::set(QStringList fields)
 {
 	this->fields = fields;
@@ -100,8 +105,8 @@ Query* Query::removeValues(QStringList values)
 
 QString Query::get(QString order)
 {
-	if (fields.isEmpty())
-		return "";
+	/*if (fields.isEmpty() && type != Type::qDELETE)
+		return "";*/
 	QString result = QString(content), pValues = "";
 	QStringList parseValues;
 
@@ -138,8 +143,17 @@ QString Query::get(QString order)
 			.replace("/conditions", conditions.join(" AND "));
 		break;
 
+	case qDELETE: // DELETE Command
+		return result.replace("/conditions", conditions.join(" AND "));
+		break;
+
 	default: return "";
 	}
+}
+
+Query::Type Query::getType() const
+{
+	return type;
 }
 
 QString Query::toValue(QString& str)

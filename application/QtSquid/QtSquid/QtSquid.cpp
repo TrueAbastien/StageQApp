@@ -19,11 +19,6 @@ QtSquid::QtSquid(QWidget *parent)
 	pages.append(new ConnectionPage(this));
 	pages.append(new PermissionPage(this));
 
-	connect(ui.search_runBtn, SIGNAL(released()), this, SLOT(runCurrentQuery()));
-
-	connect(ui.search_scanBtn, SIGNAL(clicked()), &barcodeScanner, SLOT(activate()));
-	connect(&barcodeScanner, SIGNAL(print()), this, SLOT(writeInEdit()));
-
 	connect(ui.actionStyleSheet, SIGNAL(triggered()), this, SLOT(openStyleSheetMenu()));
 
 	quickLinksData.setRules({ "stylesheet","email" });
@@ -39,33 +34,7 @@ QtSquid::QtSquid(QWidget *parent)
 
 void QtSquid::keyPressEvent(QKeyEvent* evt)
 {
-	__latest_key_pressed = evt->text();
-	emit key_press();
-}
-
-void QtSquid::runCurrentQuery()
-{
-	if (!database.connected())
-	{
-		ui.search_outputLabel->setText("Erreur: Connectez vous a la Base de Donnees !");
-		return;
-	}
-	else if (__currentQuery.isEmpty())
-	{
-		ui.search_outputLabel->setText("Erreur: Votre query est entierement vide...");
-		return;
-	}
-	ui.search_outputLabel->setText("Query Successfull !");
-
-	bool call = database.runQuery(__currentQuery);
-	if (!call) return;
-
-	database.computeModel(ui.search_resultTable);
-}
-
-void QtSquid::writeInEdit()
-{
-	ui.search_scanEdit->setText(barcodeScanner.get());
+	emit key_press(evt->text());
 }
 
 void QtSquid::openStyleSheetMenu()

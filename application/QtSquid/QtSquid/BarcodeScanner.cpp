@@ -3,14 +3,12 @@
 
 
 BarcodeScanner::BarcodeScanner(QtSquid* wnd)
-	: _parent(wnd), isActivated(false)
+	: app(wnd), isActivated(false)
 {
 	buffer = "";
 	mTimer = new QTimer();
 
-	//Debug::Log("Instantiated !"); //DEBUG
-
-	connect(wnd, SIGNAL(key_press()), this, SLOT(scan()));
+	connect(wnd, SIGNAL(key_press(QString)), this, SLOT(scan(QString)));
 	connect(mTimer, SIGNAL(timeout()), this, SLOT(terminate()));
 }
 
@@ -22,11 +20,11 @@ QString BarcodeScanner::get()
 	return res;
 }
 
-void BarcodeScanner::scan()
+void BarcodeScanner::scan(QString str)
 {
 	if (isActivated)
 	{
-		buffer += _parent->__latest_key_pressed;
+		buffer.append(str);
 		Reset();
 	}
 }
@@ -38,7 +36,7 @@ void BarcodeScanner::Reset()
 
 void BarcodeScanner::activate()
 {
-	_parent->grabKeyboard();
+	app->grabKeyboard();
 
 	isActivated = true;
 	QMessageBox::information(nullptr, "Barcode", "Scanning Activated...");
@@ -46,7 +44,7 @@ void BarcodeScanner::activate()
 
 void BarcodeScanner::terminate()
 {
-	_parent->releaseKeyboard();
+	app->releaseKeyboard();
 
 	isActivated = false;
 	mTimer->stop();

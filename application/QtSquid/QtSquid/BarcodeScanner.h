@@ -18,7 +18,7 @@ public:
 
 public slots:
 	void activate();
-	void scan();
+	void scan(QString);
 
 signals:
 	void print();
@@ -27,7 +27,7 @@ private slots:
 	void terminate();
 
 private:
-	QtSquid* _parent;
+	QtSquid* app;
 
 	QTimer* mTimer;
 	QString buffer;

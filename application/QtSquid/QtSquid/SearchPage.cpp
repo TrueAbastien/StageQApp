@@ -1,9 +1,14 @@
 #include "SearchPage.h"
+#include "QStringHelper.h"
 
 SearchPage::SearchPage(QtSquid* ref)
 	: Page(ref)
 {
-	connect(wndRef->ui.search_runBtn, &QPushButton::pressed, this, &SearchPage::ComputeScan);
+	connect(ref->ui.search_scanBtn, SIGNAL(clicked()), &ref->barcodeScanner, SLOT(activate()));
+	connect(&ref->barcodeScanner, &BarcodeScanner::print, [this]() {
+		wndRef->ui.search_scanEdit->setText((wndRef->barcodeScanner.get())); });
+
+	connect(ref->ui.search_runBtn, &QPushButton::pressed, this, &SearchPage::ComputeScan);
 	searching = Query::Select("result");
 }
 
@@ -26,7 +31,12 @@ void SearchPage::ComputeScan()
 	default: break; // All
 	}
 
-	wndRef->__currentQuery = searching->get();
+	if (wndRef->database.runQuery(searching))
+	{
+		wndRef->database.computeModel(wndRef->ui.search_resultTable);
+		wndRef->ui.search_outputLabel->setText(QStringHelper::Success("Query Successfull !"));
+	}
+	else wndRef->ui.search_outputLabel->setText(QStringHelper::Error("Query Failed..."));
 }
 
 SearchPage::~SearchPage()

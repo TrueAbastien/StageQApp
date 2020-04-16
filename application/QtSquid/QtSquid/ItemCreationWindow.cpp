@@ -13,13 +13,13 @@ ItemCreationWindow::ItemCreationWindow(QtSquid* parent)
 	connect(ui.okButton, SIGNAL(pressed()), this, SLOT(CreateItem()));
 
 	// Contact Setup
-	app->database.runQuery(Query::Select("contact")->set({ "name" })->get());
+	app->database.runQuery(Query::Select("contact")->set({ "name" }));
 	ui.form_contactCB->addItem("---");
 	foreach(QString contact, app->database.result().value("name"))
 		ui.form_contactCB->addItem(contact);
 
 	// Category Setup
-	app->database.runQuery(Query::Select("category")->set({ "name" })->get());
+	app->database.runQuery(Query::Select("category")->set({ "name" }));
 	ui.form_categoryCB->addItem("---");
 	foreach(QString category, app->database.result().value("name"))
 		ui.form_categoryCB->addItem(category);
@@ -79,13 +79,13 @@ void ItemCreationWindow::CreateItem()
 			insertItem->addValues({ QString::number(ui.form_contactCB->currentIndex()) });
 		}
 
-		if (app->database.runQuery(insertItem->get()))
+		if (app->database.runQuery(insertItem))
 		{
 			selectItemID->where({ "barcode = " + Query::toValue(ui.form_barcodeEdit->text()) });
-			if (app->database.runQuery(selectItemID->get()))
+			if (app->database.runQuery(selectItemID))
 			{
 				insertEquipment->addValues({ QString::number(ui.form_quantitySpinbox->value()), app->database.result().value("id")[0] });
-				if (app->database.runQuery(insertEquipment->get()))
+				if (app->database.runQuery(insertEquipment))
 				{
 					this->close();
 				}

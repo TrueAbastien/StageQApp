@@ -15,12 +15,21 @@ public:
 
 private:
 	ItemCreationWindow* createWindow;
-	Query* selectItemID, *updateEquipmentQty, *selectEquipmentQty;
+	Query* selectItemID, *updateEquipmentQty, *selectEquipmentQty,
+		*selectConfigID, *insertEquipment, *deleteEquipment,
+		*selectTypeName, *selectRoomName;
 
 	bool isItemUpdatable();
+	bool isItemSetable();
+
 	void OpenCreationWindow();
 
 private slots:
-	void AddElements();
-	void RemoveElements();
+	void AddElement();
+	void RemoveElement();
+
+	void TakeElement();
+	void StoreElement();
+
+	void onDatabaseConnect() override;
 };

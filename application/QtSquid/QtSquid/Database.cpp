@@ -19,7 +19,12 @@ QString Database::getLastError() const
 	return mysql_error(conn);
 }
 
-bool Database::runQuery(QString query)
+bool Database::runQuery(Query* query, QString order)
+{
+	return runRawQuery(query->get(order), query->getType() == Query::Type::SELECT);
+}
+
+bool Database::runRawQuery(QString query, bool compute)
 {
 	if (!isConnected)
 		return false;
@@ -29,7 +34,7 @@ bool Database::runQuery(QString query)
 	{
 		res = mysql_store_result(conn);
 
-		if (query.contains("SELECT"))
+		if (compute)
 		{
 			latestCSVResults = "";
 			int size = 0;
@@ -103,5 +108,6 @@ bool Database::connect(QString ip, int port, QString username, QString password,
 	conn = mysql_real_connect(conn, ip.toStdString().c_str(), username.toStdString().c_str(),
 		password.toStdString().c_str(), dbName.toStdString().c_str(), port, NULL, 0);
 	isConnected = (conn != nullptr);
+	emit successfulConnection();
 	return isConnected;
 }

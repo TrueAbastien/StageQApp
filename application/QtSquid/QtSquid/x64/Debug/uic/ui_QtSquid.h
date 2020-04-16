@@ -76,7 +76,7 @@ public:
     QSpinBox *edit_form_qtySpinbox;
     QLabel *edit_form_qtyLabel;
     QHBoxLayout *edit_HLayout_4;
-    QPushButton *edit_setBtn;
+    QPushButton *edit_storeBtn;
     QPushButton *edit_takeBtn;
     QFormLayout *edit_FLayout_5;
     QLabel *edit_form_numberLabel;
@@ -84,7 +84,7 @@ public:
     QLabel *edit_form_typeLabel;
     QComboBox *edit_form_typeCB;
     QSpinBox *edit_form_numberSpinbox;
-    QLineEdit *edit_form_roomEdit;
+    QComboBox *edit_form_roomCB;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *edit_HLayout_2;
     QPushButton *edit_runBtn;
@@ -316,10 +316,10 @@ public:
         edit_HLayout_4 = new QHBoxLayout();
         edit_HLayout_4->setSpacing(6);
         edit_HLayout_4->setObjectName(QString::fromUtf8("edit_HLayout_4"));
-        edit_setBtn = new QPushButton(verticalLayoutWidget_2);
-        edit_setBtn->setObjectName(QString::fromUtf8("edit_setBtn"));
+        edit_storeBtn = new QPushButton(verticalLayoutWidget_2);
+        edit_storeBtn->setObjectName(QString::fromUtf8("edit_storeBtn"));
 
-        edit_HLayout_4->addWidget(edit_setBtn);
+        edit_HLayout_4->addWidget(edit_storeBtn);
 
         edit_takeBtn = new QPushButton(verticalLayoutWidget_2);
         edit_takeBtn->setObjectName(QString::fromUtf8("edit_takeBtn"));
@@ -357,10 +357,10 @@ public:
 
         edit_FLayout_5->setWidget(0, QFormLayout::FieldRole, edit_form_numberSpinbox);
 
-        edit_form_roomEdit = new QLineEdit(verticalLayoutWidget_2);
-        edit_form_roomEdit->setObjectName(QString::fromUtf8("edit_form_roomEdit"));
+        edit_form_roomCB = new QComboBox(verticalLayoutWidget_2);
+        edit_form_roomCB->setObjectName(QString::fromUtf8("edit_form_roomCB"));
 
-        edit_FLayout_5->setWidget(1, QFormLayout::FieldRole, edit_form_roomEdit);
+        edit_FLayout_5->setWidget(1, QFormLayout::FieldRole, edit_form_roomCB);
 
 
         edit_VLayout->addLayout(edit_FLayout_5);
@@ -591,7 +591,7 @@ public:
 
         retranslateUi(QtSquidClass);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(QtSquidClass);
@@ -620,7 +620,7 @@ public:
         edit_removeBtn->setText(QApplication::translate("QtSquidClass", "Remove", nullptr));
         edit_form_barcodeLabel->setText(QApplication::translate("QtSquidClass", "Barcode", nullptr));
         edit_form_qtyLabel->setText(QApplication::translate("QtSquidClass", "Quantity", nullptr));
-        edit_setBtn->setText(QApplication::translate("QtSquidClass", "Set", nullptr));
+        edit_storeBtn->setText(QApplication::translate("QtSquidClass", "Store", nullptr));
         edit_takeBtn->setText(QApplication::translate("QtSquidClass", "Take", nullptr));
         edit_form_numberLabel->setText(QApplication::translate("QtSquidClass", "Number", nullptr));
         edit_form_roomLabel->setText(QApplication::translate("QtSquidClass", "Room", nullptr));

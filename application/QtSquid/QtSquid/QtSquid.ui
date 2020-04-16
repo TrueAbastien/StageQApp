@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="Search">
      <attribute name="title">
@@ -238,9 +238,9 @@
        <item>
         <layout class="QHBoxLayout" name="edit_HLayout_4">
          <item>
-          <widget class="QPushButton" name="edit_setBtn">
+          <widget class="QPushButton" name="edit_storeBtn">
            <property name="text">
-            <string>Set</string>
+            <string>Store</string>
            </property>
           </widget>
          </item>
@@ -283,7 +283,7 @@
           <widget class="QSpinBox" name="edit_form_numberSpinbox"/>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="edit_form_roomEdit"/>
+          <widget class="QComboBox" name="edit_form_roomCB"/>
          </item>
         </layout>
        </item>

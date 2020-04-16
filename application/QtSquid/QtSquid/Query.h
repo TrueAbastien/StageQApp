@@ -3,13 +3,14 @@
 
 class Query
 {
-private:
-	enum Type { SELECT, INSERT, UPDATE };
+public:
+	enum Type { SELECT, INSERT, UPDATE, qDELETE };
 
 public:
 	static Query* Select(QString view);
 	static Query* Insert(QString table);
 	static Query* Update(QString table);
+	static Query* Delete(QString table);
 	
 	Query* set(QStringList fields);
 	Query* add(QStringList fields);
@@ -24,6 +25,8 @@ public:
 	Query* removeValues(QStringList values);
 
 	QString get(QString order = "");
+
+	Type getType() const;
 
 	static QString toValue(QString& str);
 
