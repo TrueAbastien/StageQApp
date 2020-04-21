@@ -1,9 +1,9 @@
 #pragma once
 #include <QDialog>
-#include "ui_ItemCreation.h"
-#include "Query.h"
-#include "QtSquid.h"
-#include "QStringHelper.h"
+#include "ui_Creation.h"
+#include <QtSquid/sql/Query.h>
+#include <QtSquid.h>
+#include <QtSquid/tool/QStringHelper.h>
 
 class ItemCreationWindow : public QDialog
 {
@@ -14,7 +14,7 @@ public:
 	~ItemCreationWindow();
 
 private:
-	Ui::ItemCreation ui;
+	Ui::Creation ui;
 	QtSquid* app;
 	Query* insertItem, * insertEquipment, * selectItemID;
 

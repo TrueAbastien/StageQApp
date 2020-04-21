@@ -38,6 +38,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <SourcePath>$(VC_SourcePath);</SourcePath>
+  </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
     <Import Project="$(QtMsBuild)\qt_defaults.props" />
   </ImportGroup>
@@ -59,13 +65,13 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;$(ProjectDir)vendors;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;$(ProjectDir)vendors;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)QtSquid;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);$(SolutionDir)deps\MySQL_Connector\lib\opt;$(SolutionDir)deps\MySQL_Server\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);$(SolutionDir)deps\MySQL_Connector\lib\opt;$(SolutionDir)deps\MySQL_Server\lib;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)QtSquid;</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(Qt_LIBS_);%(AdditionalDependencies);mysqlcppconn.lib;libmysql.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -75,65 +81,63 @@
       <DebugInformationFormat />
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
-      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;$(ProjectDir)vendors;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);$(SolutionDir)deps\MySQL_Connector\include;$(SolutionDir)deps\MySQL_Server\include;$(ProjectDir)vendors;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)QtSquid;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);$(SolutionDir)deps\MySQL_Connector\lib\opt;$(SolutionDir)deps\MySQL_Server\lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);$(SolutionDir)deps\MySQL_Connector\lib\opt;$(SolutionDir)deps\MySQL_Server\lib;$(ProjectDir)include;$(ProjectDir)src;$(SolutionDir)QtSquid;</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(Qt_LIBS_);%(AdditionalDependencies);mysqlcppconn.lib;libmysql.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BarcodeScanner.cpp" />
-    <ClCompile Include="ConnectionPage.cpp" />
-    <ClCompile Include="Database.cpp" />
-    <ClCompile Include="EditPage.cpp" />
-    <ClCompile Include="FileLogger.cpp" />
-    <ClCompile Include="ItemCreationWindow.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MySQLTable.cpp" />
-    <ClCompile Include="PermissionPage.cpp" />
-    <ClCompile Include="QStringHelper.cpp" />
     <ClCompile Include="QtSquid.cpp" />
-    <ClCompile Include="Query.cpp" />
-    <ClCompile Include="SearchPage.cpp" />
-    <ClCompile Include="SettingFile.cpp" />
-    <ClCompile Include="StyleSheetCache.cpp" />
-    <ClCompile Include="StyleSheetWindow.cpp" />
+    <ClCompile Include="src\BarcodeScanner.cpp" />
+    <ClCompile Include="src\ConnectionPage.cpp" />
+    <ClCompile Include="src\Database.cpp" />
+    <ClCompile Include="src\EditPage.cpp" />
+    <ClCompile Include="src\FileLogger.cpp" />
+    <ClCompile Include="src\ItemCreationWindow.cpp" />
+    <ClCompile Include="src\MySQLTable.cpp" />
+    <ClCompile Include="src\PermissionPage.cpp" />
+    <ClCompile Include="src\QStringHelper.cpp" />
+    <ClCompile Include="src\Query.cpp" />
+    <ClCompile Include="src\SearchPage.cpp" />
+    <ClCompile Include="src\SettingFile.cpp" />
+    <ClCompile Include="src\StyleSheetCache.cpp" />
+    <ClCompile Include="src\StyleSheetWindow.cpp" />
     <ClCompile Include="vendors\SimpleCrypt\SimpleCrypt.cpp" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h" />
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="ItemCreation.ui" />
+    <QtUic Include="Creation.ui" />
     <QtUic Include="QtSquid.ui" />
-    <QtUic Include="StyleSheetWnd.ui" />
+    <QtUic Include="Settings.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="QtSquid.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Page.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="FileLogger.h" />
     <QtMoc Include="ItemCreationWindow.h" />
-    <ClInclude Include="QStringHelper.h" />
-    <ClInclude Include="Query.h" />
-    <ClInclude Include="SettingFile.h" />
-    <ClInclude Include="StyleSheetCache.h" />
+    <ClInclude Include="include\QtSquid\core\cache\StyleSheetCache.h" />
+    <ClInclude Include="include\QtSquid\core\file\FileLogger.h" />
+    <ClInclude Include="include\QtSquid\core\file\SettingFile.h" />
+    <QtMoc Include="include\QtSquid\core\page\Page.h" />
+    <QtMoc Include="include\QtSquid\core\page\main\ConnectionPage.h" />
+    <QtMoc Include="include\QtSquid\core\page\main\EditPage.h" />
+    <QtMoc Include="include\QtSquid\core\page\main\PermissionPage.h" />
+    <QtMoc Include="include\QtSquid\core\page\main\SearchPage.h" />
+    <QtMoc Include="include\QtSquid\sql\Database.h" />
+    <QtMoc Include="include\QtSquid\sql\MySQLTable.h" />
+    <ClInclude Include="include\QtSquid\sql\Query.h" />
+    <QtMoc Include="include\QtSquid\tool\BarcodeScanner.h" />
+    <ClInclude Include="include\QtSquid\tool\QStringHelper.h" />
     <ClInclude Include="vendors\SimpleCrypt\SimpleCrypt.h" />
     <QtMoc Include="StyleSheetWindow.h" />
-    <QtMoc Include="BarcodeScanner.h" />
-    <QtMoc Include="ConnectionPage.h" />
-    <QtMoc Include="Database.h" />
-    <QtMoc Include="EditPage.h" />
-    <QtMoc Include="MySQLTable.h" />
-    <QtMoc Include="PermissionPage.h" />
-    <QtMoc Include="SearchPage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

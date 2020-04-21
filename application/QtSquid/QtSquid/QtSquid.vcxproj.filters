@@ -31,49 +31,49 @@
     <ClCompile Include="QtSquid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SearchPage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EditPage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ConnectionPage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PermissionPage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Database.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MySQLTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BarcodeScanner.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StyleSheetCache.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StyleSheetWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SettingFile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Query.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FileLogger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="vendors\SimpleCrypt\SimpleCrypt.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ItemCreationWindow.cpp">
+    <ClCompile Include="src\BarcodeScanner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QStringHelper.cpp">
+    <ClCompile Include="src\ConnectionPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EditPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FileLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ItemCreationWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MySQLTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PermissionPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\QStringHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Query.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SearchPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SettingFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StyleSheetCache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StyleSheetWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -81,34 +81,34 @@
     <QtMoc Include="QtSquid.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="Page.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="Database.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="MySQLTable.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="BarcodeScanner.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="StyleSheetWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="ConnectionPage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="PermissionPage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="SearchPage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="EditPage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="ItemCreationWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\Page.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\main\ConnectionPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\main\EditPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\main\PermissionPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\main\SearchPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\sql\Database.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\sql\MySQLTable.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\tool\BarcodeScanner.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -121,30 +121,30 @@
     <QtUic Include="QtSquid.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="StyleSheetWnd.ui">
+    <QtUic Include="Creation.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="ItemCreation.ui">
+    <QtUic Include="Settings.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="StyleSheetCache.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SettingFile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Query.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileLogger.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="vendors\SimpleCrypt\SimpleCrypt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QStringHelper.h">
+    <ClInclude Include="include\QtSquid\core\cache\StyleSheetCache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QtSquid\core\file\FileLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QtSquid\core\file\SettingFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QtSquid\sql\Query.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QtSquid\tool\QStringHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include <QDialog>
-#include "StyleSheetCache.h"
-#include "ui_StyleSheetWnd.h"
+#include <QtSquid/core/cache/StyleSheetCache.h>
+#include "ui_Settings.h"
 
 
 class StyleSheetWindow : public QDialog
@@ -20,7 +20,7 @@ private:
 	StyleSheetCache* cache;
 	QString currentStyleSheet;
 
-	Ui::Dialog ui;
+	Ui::Settings ui;
 
 signals:
 	void pickStyleSheet(QString styleSheet);

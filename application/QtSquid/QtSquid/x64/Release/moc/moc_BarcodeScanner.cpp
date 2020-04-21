@@ -62,15 +62,15 @@ static const uint qt_meta_data_BarcodeScanner[] = {
 
  // slots: name, argc, parameters, tag, flags
        3,    0,   35,    2, 0x0a /* Public */,
-       4,    0,   36,    2, 0x0a /* Public */,
-       5,    0,   37,    2, 0x08 /* Private */,
+       4,    1,   36,    2, 0x0a /* Public */,
+       5,    0,   39,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void,
 
        0        // eod
@@ -84,7 +84,7 @@ void BarcodeScanner::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->print(); break;
         case 1: _t->activate(); break;
-        case 2: _t->scan(); break;
+        case 2: _t->scan((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->terminate(); break;
         default: ;
         }
@@ -98,7 +98,6 @@ void BarcodeScanner::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject BarcodeScanner::staticMetaObject = { {

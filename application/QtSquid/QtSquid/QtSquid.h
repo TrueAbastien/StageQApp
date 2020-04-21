@@ -4,11 +4,11 @@
 #include <QKeyEvent>
 #include "ui_QtSquid.h"
 
-#include "Database.h"
-#include "BarcodeScanner.h"
-#include "StyleSheetCache.h"
-#include "StyleSheetWindow.h"
-#include "SettingFile.h"
+#include <QtSquid/sql/Database.h>
+#include <QtSquid/tool/BarcodeScanner.h>
+#include <QtSquid/core/cache/StyleSheetCache.h>
+#include <StyleSheetWindow.h>
+#include <QtSquid/core/file/SettingFile.h>
 
 
 class Page;

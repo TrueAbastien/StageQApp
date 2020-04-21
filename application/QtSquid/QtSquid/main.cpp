@@ -1,4 +1,4 @@
-#include "QtSquid.h"
+#include <QtSquid.h>
 #include <QtWidgets/QApplication>
 
 int main(int argc, char *argv[])

@@ -1,9 +1,9 @@
-#include "QtSquid.h"
+#include <QtSquid.h>
 
-#include "SearchPage.h"
-#include "EditPage.h"
-#include "ConnectionPage.h"
-#include "PermissionPage.h"
+#include <QtSquid/core/page/main/SearchPage.h>
+#include <QtSquid/core/page/main/EditPage.h>
+#include <QtSquid/core/page/main/ConnectionPage.h>
+#include <QtSquid/core/page/main/PermissionPage.h>
 
 #include <QDesktopServices>
 
