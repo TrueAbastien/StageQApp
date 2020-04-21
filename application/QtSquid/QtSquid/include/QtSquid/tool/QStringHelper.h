@@ -13,4 +13,7 @@ public:
 	static QString Error(QString str);
 	static QString Success(QString str);
 	static QString Info(QString str);
+
+	static QString BarcodeToInt(QString barcode);
+	static QString IntToBarcode(QString integer);
 };

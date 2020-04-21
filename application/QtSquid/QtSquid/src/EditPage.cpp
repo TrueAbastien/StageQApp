@@ -38,7 +38,7 @@ bool EditPage::isItemSetable()
 
 void EditPage::OpenCreationWindow()
 {
-	createWindow = new ItemCreationWindow(wndRef);
+	createWindow = new CreationWindow(wndRef);
 	createWindow->exec();
 }
 

@@ -1,6 +1,6 @@
 #pragma once
 #include <QtSquid/core/page/Page.h>
-#include <ItemCreationWindow.h>
+#include <CreationWindow.h>
 #include <QtSquid/sql/Query.h>
 #include <QtSquid/tool/QStringHelper.h>
 
@@ -14,7 +14,7 @@ public:
 	void handle() override { }
 
 private:
-	ItemCreationWindow* createWindow;
+	CreationWindow* createWindow;
 	Query* selectItemID, *updateEquipmentQty, *selectEquipmentQty,
 		*selectConfigID, *insertEquipment, *deleteEquipment,
 		*selectTypeName, *selectRoomName;

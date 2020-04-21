@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>426</width>
-    <height>477</height>
+    <width>419</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,13 +16,13 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>310</x>
      <y>20</y>
      <width>95</width>
      <height>106</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="VLayout_1">
+   <layout class="QVBoxLayout" name="VLayout_0">
     <property name="spacing">
      <number>6</number>
     </property>
@@ -67,135 +67,174 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QToolBox" name="pagination">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>10</y>
-     <width>261</width>
-     <height>451</height>
+     <width>291</width>
+     <height>601</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="VLayout_2">
-    <item>
-     <widget class="QLabel" name="outputLabel">
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#c5220d;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QFormLayout" name="FLayout_2_1">
-      <item row="2" column="0">
-       <widget class="QLabel" name="form_nameLabel">
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="Item">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>291</width>
+      <height>539</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Item</string>
+    </attribute>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>261</width>
+       <height>526</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="VLayout_1">
+      <item>
+       <widget class="QLabel" name="item_outputLabel">
         <property name="text">
-         <string>Name</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; color:#c5220d;&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="form_barcodeLabel">
-        <property name="text">
-         <string>Barcode</string>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="form_manufacturerLabel">
-        <property name="text">
-         <string>Manufacturer</string>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
         </property>
-       </widget>
+       </spacer>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="form_providerLabel">
-        <property name="text">
-         <string>Provider</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="form_descriptionLabel">
-        <property name="text">
-         <string>Description</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="form_restockLabel">
-        <property name="text">
-         <string>Restock</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="form_categoryLabel">
-        <property name="text">
-         <string>Category</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="form_contactLabel">
-        <property name="text">
-         <string>Contact</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="form_nameEdit"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="QLineEdit" name="form_barcodeEdit"/>
-      </item>
-      <item row="4" column="1">
-       <widget class="QLineEdit" name="form_manufacturerEdit"/>
-      </item>
-      <item row="5" column="1">
-       <widget class="QLineEdit" name="form_providerEdit"/>
-      </item>
-      <item row="6" column="1">
-       <widget class="QTextEdit" name="form_descriptionEdit"/>
-      </item>
-      <item row="7" column="1">
-       <widget class="QSpinBox" name="form_restockSpinbox">
-        <property name="minimum">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QComboBox" name="form_categoryCB"/>
-      </item>
-      <item row="9" column="1">
-       <widget class="QComboBox" name="form_contactCB"/>
-      </item>
-      <item row="1" column="1">
-       <widget class="QSpinBox" name="form_quantitySpinbox"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="form_quantityLabel">
-        <property name="text">
-         <string>Quantity</string>
-        </property>
-       </widget>
+      <item>
+       <layout class="QFormLayout" name="FLayout_1_1">
+        <item row="1" column="0">
+         <widget class="QLabel" name="item_form_quantityLabel">
+          <property name="text">
+           <string>Quantity</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSpinBox" name="item_form_quantitySpinbox"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="item_form_nameLabel">
+          <property name="text">
+           <string>Name</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="item_form_nameEdit"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="item_form_barcodeLabel">
+          <property name="text">
+           <string>Barcode</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="item_form_barcodeEdit"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="item_form_manufacturerLabel">
+          <property name="text">
+           <string>Manufacturer</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="item_form_manufacturerEdit"/>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="item_form_providerLabel">
+          <property name="text">
+           <string>Provider</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QLineEdit" name="item_form_providerEdit"/>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="item_form_descriptionLabel">
+          <property name="text">
+           <string>Description</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QTextEdit" name="item_form_descriptionEdit"/>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="item_form_restockLabel">
+          <property name="text">
+           <string>Restock</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QSpinBox" name="item_form_restockSpinbox">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="item_form_categoryLabel">
+          <property name="text">
+           <string>Category</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QComboBox" name="item_form_categoryCB"/>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="item_form_contactLabel">
+          <property name="text">
+           <string>Contact</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QComboBox" name="item_form_contactCB"/>
+        </item>
+       </layout>
       </item>
      </layout>
-    </item>
-   </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="Configuration">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>291</width>
+      <height>539</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Configuration</string>
+    </attribute>
+   </widget>
   </widget>
  </widget>
  <resources/>

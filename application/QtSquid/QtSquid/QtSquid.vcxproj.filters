@@ -49,9 +49,6 @@
     <ClCompile Include="src\FileLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\ItemCreationWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\MySQLTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -76,15 +73,18 @@
     <ClCompile Include="src\StyleSheetWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\CreationWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ItemCreationPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="StyleSheetWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="ItemCreationWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="include\QtSquid\core\page\Page.h">
@@ -109,6 +109,15 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="include\QtSquid\tool\BarcodeScanner.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\CreationPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CreationWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\creation\ItemCreationPage.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

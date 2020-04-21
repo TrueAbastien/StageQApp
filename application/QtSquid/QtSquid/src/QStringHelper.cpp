@@ -32,3 +32,15 @@ QString QStringHelper::Info(QString str)
 {
 	return formatAtColor(str, "4692b0");
 }
+
+QString QStringHelper::BarcodeToInt(QString barcode)
+{
+	//
+	return "";
+}
+
+QString QStringHelper::IntToBarcode(QString integer)
+{
+	//
+	return "";
+}
