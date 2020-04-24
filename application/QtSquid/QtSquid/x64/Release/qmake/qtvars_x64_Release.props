@@ -5,7 +5,7 @@
 <Qt_LIBS_>B:\Softwares\Qt\5.12.7\msvc2017_64\lib\Qt5UiTools.lib;B:\Softwares\Qt\5.12.7\msvc2017_64\lib\Qt5Widgets.lib;B:\Softwares\Qt\5.12.7\msvc2017_64\lib\Qt5Gui.lib;B:\Softwares\Qt\5.12.7\msvc2017_64\lib\Qt5Sql.lib;B:\Softwares\Qt\5.12.7\msvc2017_64\lib\Qt5Xml.lib;B:\Softwares\Qt\5.12.7\msvc2017_64\lib\Qt5Core.lib;B:\Softwares\Qt\5.12.7\msvc2017_64\lib\qtmain.lib;shell32.lib</Qt_LIBS_>
 <Qt_LIBPATH_>C:\openssl\lib;C:\Utils\my_sql\mysql-5.6.11-winx64\lib;C:\Utils\postgresql\pgsql\lib</Qt_LIBPATH_>
 <Qt_INCLUDEPATH_
-      >$(Qt_INCLUDEPATH_);x64\Release\moc;x64\Release\moc\include\QtSquid\core\page;x64\Release\moc\include\QtSquid\core\page\main;x64\Release\moc\include\QtSquid\sql;x64\Release\moc\include\QtSquid\core\page\creation;x64\Release\moc\include\QtSquid\tool;x64\Release\uic</Qt_INCLUDEPATH_>
+      >$(Qt_INCLUDEPATH_);x64\Release\moc;x64\Release\moc\include\QtSquid\core\page;x64\Release\moc\include\QtSquid\core\page\main;x64\Release\moc\include\QtSquid\sql;x64\Release\moc\include\QtSquid\core\page\creation;x64\Release\moc\include\QtSquid\core\page\settings;x64\Release\moc\include\QtSquid\event;x64\Release\moc\include\QtSquid\tool;x64\Release\uic</Qt_INCLUDEPATH_>
     <QtBkup_QtInstall
       >msvc2017-64</QtBkup_QtInstall>
     <QtBkup_QtModules

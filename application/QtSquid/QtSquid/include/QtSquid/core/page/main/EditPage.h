@@ -1,6 +1,5 @@
 #pragma once
 #include <QtSquid/core/page/Page.h>
-#include <CreationWindow.h>
 #include <QtSquid/sql/Query.h>
 #include <QtSquid/tool/QStringHelper.h>
 
@@ -14,15 +13,12 @@ public:
 	void handle() override { }
 
 private:
-	CreationWindow* createWindow;
 	Query* selectItemID, *updateEquipmentQty, *selectEquipmentQty,
 		*selectConfigID, *insertEquipment, *deleteEquipment,
 		*selectTypeName, *selectRoomName;
 
 	bool isItemUpdatable();
 	bool isItemSetable();
-
-	void OpenCreationWindow();
 
 private slots:
 	void AddElement();
@@ -32,4 +28,7 @@ private slots:
 	void StoreElement();
 
 	void onDatabaseConnect() override;
+
+signals:
+	void OpenCreationMenu();
 };

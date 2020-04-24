@@ -35,12 +35,26 @@ QString QStringHelper::Info(QString str)
 
 QString QStringHelper::BarcodeToInt(QString barcode)
 {
-	//
-	return "";
+	if (barcode.isEmpty())
+		return barcode;
+
+	while (barcode.at(0) == '0')
+	{
+		barcode = barcode.right(1);
+		if (barcode.isEmpty())
+			return barcode;
+	}
+
+	return barcode;
 }
 
 QString QStringHelper::IntToBarcode(QString integer)
 {
-	//
-	return "";
+	if (integer.isEmpty())
+		return integer;
+
+	while (integer.length() < 8)
+		integer.push_front('0');
+
+	return integer;
 }

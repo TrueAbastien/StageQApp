@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QtWidgets/QMainWindow>
 #include <QKeyEvent>
 #include "ui_QtSquid.h"
@@ -7,11 +6,11 @@
 #include <QtSquid/sql/Database.h>
 #include <QtSquid/tool/BarcodeScanner.h>
 #include <QtSquid/core/cache/StyleSheetCache.h>
-#include <StyleSheetWindow.h>
 #include <QtSquid/core/file/SettingFile.h>
 
-
 class Page;
+class SettingWindow;
+class CreationWindow;
 
 class QtSquid : public QMainWindow
 {
@@ -27,16 +26,18 @@ public:
 	BarcodeScanner barcodeScanner;
 	StyleSheetCache styleSheetCache;
 
-private:
-	StyleSheetWindow* styleSheetWindow;
 	SettingFile preferenceData, quickLinksData;
+
+private:
+	CreationWindow* createWindow;
+	SettingWindow* settingWindow;
 
 protected:
 	void keyPressEvent(QKeyEvent* evt) override;
 
-private slots:
-	void openStyleSheetMenu();
-	void changeStyleSheet(QString styleSheet);
+public slots:
+	void OpenSettingWindow();
+	void OpenCreationWindow();
 
 signals:
 	void key_press(QString);

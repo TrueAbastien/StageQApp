@@ -1,8 +1,12 @@
 #include <QtSquid/core/page/main/EditPage.h>
 
+#include <AdvancedWindow.h>
+
 EditPage::EditPage(QtSquid* ref)
-	: Page(ref), createWindow(nullptr)
+	: Page(ref)
 {
+	connect(this, SIGNAL(OpenCreationMenu()), wndRef, SLOT(OpenCreationWindow()));
+
 	selectItemID = Query::Select("item")->add({ "id" });
 	updateEquipmentQty = Query::Update("equipment")->add({ "quantity" });
 	selectEquipmentQty = Query::Select("equipment")->add({ "id", "quantity" });
@@ -36,12 +40,6 @@ bool EditPage::isItemSetable()
 		&& wndRef->ui.edit_form_typeCB->currentIndex() > 0;
 }
 
-void EditPage::OpenCreationWindow()
-{
-	createWindow = new CreationWindow(wndRef);
-	createWindow->exec();
-}
-
 void EditPage::AddElement()
 {
 	if (isItemUpdatable())
@@ -65,7 +63,7 @@ void EditPage::AddElement()
 
 			wndRef->ui.edit_outputLabel->setText(QStringHelper::Success("Item successfully added !"));
 		}
-		else OpenCreationWindow();
+		emit OpenCreationMenu();
 	}
 	else
 	{

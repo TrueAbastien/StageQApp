@@ -70,21 +70,18 @@
     <ClCompile Include="src\StyleSheetCache.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\StyleSheetWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CreationWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\ItemCreationPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StylesheetSettingPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AdvancedWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="QtSquid.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="StyleSheetWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="include\QtSquid\core\page\Page.h">
@@ -111,13 +108,22 @@
     <QtMoc Include="include\QtSquid\tool\BarcodeScanner.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="include\QtSquid\core\page\CreationPage.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
-    <QtMoc Include="CreationWindow.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="include\QtSquid\core\page\creation\ItemCreationPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\settings\StylesheetSettingPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\event\EventSystem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\AdvancedPage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AdvancedWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="include\QtSquid\core\page\AdvancedPageDefine.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -154,6 +160,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\QtSquid\tool\QStringHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QtSquid\event\Observer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

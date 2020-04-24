@@ -92,6 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdvancedWindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="QtSquid.cpp" />
     <ClCompile Include="src\BarcodeScanner.cpp" />
@@ -99,7 +100,6 @@
     <ClCompile Include="src\Database.cpp" />
     <ClCompile Include="src\EditPage.cpp" />
     <ClCompile Include="src\FileLogger.cpp" />
-    <ClCompile Include="src\CreationWindow.cpp" />
     <ClCompile Include="src\ItemCreationPage.cpp" />
     <ClCompile Include="src\MySQLTable.cpp" />
     <ClCompile Include="src\PermissionPage.cpp" />
@@ -108,7 +108,7 @@
     <ClCompile Include="src\SearchPage.cpp" />
     <ClCompile Include="src\SettingFile.cpp" />
     <ClCompile Include="src\StyleSheetCache.cpp" />
-    <ClCompile Include="src\StyleSheetWindow.cpp" />
+    <ClCompile Include="src\StylesheetSettingPage.cpp" />
     <ClCompile Include="vendors\SimpleCrypt\SimpleCrypt.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +123,7 @@
     <QtRcc Include="QtSquid.qrc" />
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="CreationWindow.h" />
+    <QtMoc Include="AdvancedWindow.h" />
     <ClInclude Include="include\QtSquid\core\cache\StyleSheetCache.h" />
     <ClInclude Include="include\QtSquid\core\file\FileLogger.h" />
     <ClInclude Include="include\QtSquid\core\file\SettingFile.h" />
@@ -134,13 +134,16 @@
     <QtMoc Include="include\QtSquid\core\page\main\SearchPage.h" />
     <QtMoc Include="include\QtSquid\sql\Database.h" />
     <QtMoc Include="include\QtSquid\sql\MySQLTable.h" />
-    <QtMoc Include="include\QtSquid\core\page\CreationPage.h" />
     <QtMoc Include="include\QtSquid\core\page\creation\ItemCreationPage.h" />
+    <QtMoc Include="include\QtSquid\core\page\AdvancedPage.h" />
+    <QtMoc Include="include\QtSquid\core\page\settings\StylesheetSettingPage.h" />
+    <QtMoc Include="include\QtSquid\event\EventSystem.h" />
+    <QtMoc Include="include\QtSquid\core\page\AdvancedPageDefine.h" />
+    <ClInclude Include="include\QtSquid\event\Observer.h" />
     <ClInclude Include="include\QtSquid\sql\Query.h" />
     <QtMoc Include="include\QtSquid\tool\BarcodeScanner.h" />
     <ClInclude Include="include\QtSquid\tool\QStringHelper.h" />
     <ClInclude Include="vendors\SimpleCrypt\SimpleCrypt.h" />
-    <QtMoc Include="StyleSheetWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

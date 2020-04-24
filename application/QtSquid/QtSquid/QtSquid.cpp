@@ -5,12 +5,15 @@
 #include <QtSquid/core/page/main/ConnectionPage.h>
 #include <QtSquid/core/page/main/PermissionPage.h>
 
+#include <AdvancedWindow.h>
+
 #include <QDesktopServices>
 
 
-QtSquid::QtSquid(QWidget *parent)
+QtSquid::QtSquid(QWidget* parent)
 	: QMainWindow(parent), barcodeScanner(this), styleSheetCache("Ressources/stylesheet"),
-	styleSheetWindow(nullptr), preferenceData("preferences"), quickLinksData("quicklinks")
+	preferenceData("preferences"), quickLinksData("quicklinks")
+	
 {
 	ui.setupUi(this);
 
@@ -19,7 +22,10 @@ QtSquid::QtSquid(QWidget *parent)
 	pages.append(new ConnectionPage(this));
 	pages.append(new PermissionPage(this));
 
-	connect(ui.actionStyleSheet, SIGNAL(triggered()), this, SLOT(openStyleSheetMenu()));
+	settingWindow = new SettingWindow(this);
+	createWindow = new CreationWindow(this);
+
+	connect(ui.actionStyleSheet, SIGNAL(triggered()), this, SLOT(OpenSettingWindow()));
 
 	quickLinksData.setRules({ "stylesheet","email" });
 	quickLinksData.readFile();
@@ -37,21 +43,13 @@ void QtSquid::keyPressEvent(QKeyEvent* evt)
 	emit key_press(evt->text());
 }
 
-void QtSquid::openStyleSheetMenu()
+void QtSquid::OpenCreationWindow()
 {
-	styleSheetWindow = new StyleSheetWindow(this);
-	connect(styleSheetWindow, SIGNAL(pickStyleSheet(QString)), this, SLOT(changeStyleSheet(QString)));
-
-	styleSheetWindow->setContent(&styleSheetCache);
-	styleSheetWindow->setStyleSheet(preferenceData.get("style"));
-	styleSheetWindow->exec();
+	createWindow->open();
 }
 
-void QtSquid::changeStyleSheet(QString styleSheet)
+void QtSquid::OpenSettingWindow()
 {
-	preferenceData.set("style", styleSheet);
-	styleSheetCache.Set(this, styleSheet);
-
-	preferenceData.writeFile();
+	settingWindow->open();
 }
 

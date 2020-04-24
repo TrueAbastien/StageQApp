@@ -1,5 +1,5 @@
 #pragma once
-#include <QtSquid/core/page/CreationPage.h>
+#include <QtSquid/core/page/AdvancedPageDefine.h>
 #include <QtSquid/sql/Query.h>
 
 class ItemCreationPage : public CreationPage
@@ -11,7 +11,6 @@ public:
 	~ItemCreationPage();
 
 	void handle() override { }
-
 	void pressOkButton() override;
 
 private:

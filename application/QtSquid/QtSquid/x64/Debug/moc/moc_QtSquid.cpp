@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_QtSquid_t {
-    QByteArrayData data[6];
-    char stringdata0[66];
+    QByteArrayData data[5];
+    char stringdata0[56];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,13 +34,12 @@ static const qt_meta_stringdata_QtSquid_t qt_meta_stringdata_QtSquid = {
 QT_MOC_LITERAL(0, 0, 7), // "QtSquid"
 QT_MOC_LITERAL(1, 8, 9), // "key_press"
 QT_MOC_LITERAL(2, 18, 0), // ""
-QT_MOC_LITERAL(3, 19, 18), // "openStyleSheetMenu"
-QT_MOC_LITERAL(4, 38, 16), // "changeStyleSheet"
-QT_MOC_LITERAL(5, 55, 10) // "styleSheet"
+QT_MOC_LITERAL(3, 19, 17), // "OpenSettingWindow"
+QT_MOC_LITERAL(4, 37, 18) // "OpenCreationWindow"
 
     },
-    "QtSquid\0key_press\0\0openStyleSheetMenu\0"
-    "changeStyleSheet\0styleSheet"
+    "QtSquid\0key_press\0\0OpenSettingWindow\0"
+    "OpenCreationWindow"
 };
 #undef QT_MOC_LITERAL
 
@@ -61,15 +60,15 @@ static const uint qt_meta_data_QtSquid[] = {
        1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   32,    2, 0x08 /* Private */,
-       4,    1,   33,    2, 0x08 /* Private */,
+       3,    0,   32,    2, 0x0a /* Public */,
+       4,    0,   33,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -81,8 +80,8 @@ void QtSquid::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->key_press((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: _t->openStyleSheetMenu(); break;
-        case 2: _t->changeStyleSheet((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->OpenSettingWindow(); break;
+        case 2: _t->OpenCreationWindow(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

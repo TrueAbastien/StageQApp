@@ -39,53 +39,53 @@ void ItemCreationPage::pressOkButton()
 	insertEquipment->set({ "quantity", "item_id" })->clearValues();
 	selectItemID->free();
 
-	if (creationWndRef->ui.item_form_nameEdit->text().isEmpty())
-		creationWndRef->ui.item_outputLabel->setText(QStringHelper::Error("Name is required."));
-	else if (creationWndRef->ui.item_form_barcodeEdit->text().isEmpty())
-		creationWndRef->ui.item_outputLabel->setText(QStringHelper::Error("Barcode is missing !"));
-	else if (creationWndRef->ui.item_form_quantitySpinbox->value() < creationWndRef->ui.item_form_restockSpinbox->value())
-		creationWndRef->ui.item_outputLabel->setText(QStringHelper::Error("Quantity is lower than Restock..."));
-	else if (creationWndRef->ui.item_form_categoryCB->currentIndex() <= 0)
-		creationWndRef->ui.item_outputLabel->setText(QStringHelper::Error("You have to pick a Category !"));
+	if (advWndRef->ui.item_form_nameEdit->text().isEmpty())
+		advWndRef->ui.item_outputLabel->setText(QStringHelper::Error("Name is required."));
+	else if (advWndRef->ui.item_form_barcodeEdit->text().isEmpty())
+		advWndRef->ui.item_outputLabel->setText(QStringHelper::Error("Barcode is missing !"));
+	else if (advWndRef->ui.item_form_quantitySpinbox->value() < advWndRef->ui.item_form_restockSpinbox->value())
+		advWndRef->ui.item_outputLabel->setText(QStringHelper::Error("Quantity is lower than Restock..."));
+	else if (advWndRef->ui.item_form_categoryCB->currentIndex() <= 0)
+		advWndRef->ui.item_outputLabel->setText(QStringHelper::Error("You have to pick a Category !"));
 	else
 	{
 		insertItem->addValues({
-			Query::toValue(creationWndRef->ui.item_form_nameEdit->text()),
-			Query::toValue(creationWndRef->ui.item_form_barcodeEdit->text()),
-			QString::number(creationWndRef->ui.item_form_restockSpinbox->value()),
-			QString::number(creationWndRef->ui.item_form_categoryCB->currentIndex()) });
+			Query::toValue(advWndRef->ui.item_form_nameEdit->text()),
+			Query::toValue(advWndRef->ui.item_form_barcodeEdit->text()),
+			QString::number(advWndRef->ui.item_form_restockSpinbox->value()),
+			QString::number(advWndRef->ui.item_form_categoryCB->currentIndex()) });
 
-		if (!creationWndRef->ui.item_form_manufacturerEdit->text().isEmpty())
+		if (!advWndRef->ui.item_form_manufacturerEdit->text().isEmpty())
 		{
 			insertItem->add({ "manufacturer" });
-			insertItem->addValues({ Query::toValue(creationWndRef->ui.item_form_manufacturerEdit->text()) });
+			insertItem->addValues({ Query::toValue(advWndRef->ui.item_form_manufacturerEdit->text()) });
 		}
-		if (!creationWndRef->ui.item_form_providerEdit->text().isEmpty())
+		if (!advWndRef->ui.item_form_providerEdit->text().isEmpty())
 		{
 			insertItem->add({ "provider" });
-			insertItem->addValues({ Query::toValue(creationWndRef->ui.item_form_providerEdit->text()) });
+			insertItem->addValues({ Query::toValue(advWndRef->ui.item_form_providerEdit->text()) });
 		}
-		if (!creationWndRef->ui.item_form_descriptionEdit->toPlainText().isEmpty())
+		if (!advWndRef->ui.item_form_descriptionEdit->toPlainText().isEmpty())
 		{
 			insertItem->add({ "description" });
-			insertItem->addValues({ Query::toValue(creationWndRef->ui.item_form_descriptionEdit->toPlainText()) });
+			insertItem->addValues({ Query::toValue(advWndRef->ui.item_form_descriptionEdit->toPlainText()) });
 		}
-		if (creationWndRef->ui.item_form_contactCB->currentIndex() > 0)
+		if (advWndRef->ui.item_form_contactCB->currentIndex() > 0)
 		{
 			insertItem->add({ "contact_id" });
-			insertItem->addValues({ QString::number(creationWndRef->ui.item_form_contactCB->currentIndex()) });
+			insertItem->addValues({ QString::number(advWndRef->ui.item_form_contactCB->currentIndex()) });
 		}
 
 		if (wndRef->database.runQuery(insertItem))
 		{
-			selectItemID->where({ "barcode = " + Query::toValue(creationWndRef->ui.item_form_barcodeEdit->text()) });
+			selectItemID->where({ "barcode = " + Query::toValue(advWndRef->ui.item_form_barcodeEdit->text()) });
 			if (wndRef->database.runQuery(selectItemID))
 			{
 				insertEquipment->addValues
-					({ QString::number(creationWndRef->ui.item_form_quantitySpinbox->value()), wndRef->database.result().value("id")[0] });
+					({ QString::number(advWndRef->ui.item_form_quantitySpinbox->value()), wndRef->database.result().value("id")[0] });
 				if (wndRef->database.runQuery(insertEquipment))
 				{
-					creationWndRef->close();
+					advWndRef->close();
 				}
 			}
 		}
