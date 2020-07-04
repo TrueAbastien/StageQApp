@@ -1,6 +1,11 @@
 #pragma once
 #include <QFile>
 
+/**
+* FileLogger class
+*
+* File log system writing data through specified file path.
+*/
 class FileLogger : public QFile
 {
 public:

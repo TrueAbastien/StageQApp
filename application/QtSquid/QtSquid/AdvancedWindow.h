@@ -5,7 +5,11 @@
 #include "ui_Settings.h"
 #include "ui_Creation.h"
 
-
+/**
+* AdvancedWindow class
+*
+* Interface for Advanced window used as secondaries from the main application window.
+*/
 class AdvancedWindow : public QDialog
 {
 	Q_OBJECT
@@ -35,6 +39,11 @@ protected slots:
 
 //-----------------------------------------------------------------------------------------------//
 
+/**
+* CreationWindow class
+*
+* Window containing each Creation Page for easier use.
+*/
 class CreationWindow : public AdvancedWindow
 {
 	Q_OBJECT
@@ -46,6 +55,11 @@ public:
 	Ui::Creation ui;
 };
 
+/**
+* SettingWindow class
+*
+* Window containing each Setting Page for easier use.
+*/
 class SettingWindow : public AdvancedWindow
 {
 	Q_OBJECT

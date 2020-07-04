@@ -5,6 +5,12 @@
 
 #include <SimpleCrypt/SimpleCrypt.h>
 
+/**
+* SettingFile class
+*
+* File object used to write local setting file (.setting).
+* Encryption looks like YAML format but doesn't allow structures.
+*/
 class SettingFile : public QFile
 {
 public:

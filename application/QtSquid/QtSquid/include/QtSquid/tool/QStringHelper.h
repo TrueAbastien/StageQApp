@@ -1,6 +1,11 @@
 #pragma once
 #include <QString>
 
+/**
+* QStringHelper class
+*
+* Helper class used to return modified QString for any specific use.
+*/
 class QStringHelper
 {
 private:

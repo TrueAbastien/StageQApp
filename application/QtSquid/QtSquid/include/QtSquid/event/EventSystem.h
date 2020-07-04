@@ -2,6 +2,11 @@
 #include <QObject>
 #include <QMap>
 
+/**
+* EventSystem class (deprecated)
+*
+* Used to connect objects observing each others.
+*/
 class EventSystem : public QObject
 {
 	Q_OBJECT

@@ -2,6 +2,12 @@
 #include <QtSquid/sql/Database.h>
 #include <QTableWidget>
 
+/**
+* MySQLTable class
+*
+* Graphic object used to draw database latest result in a TableWidget.
+* Will display in a table every successful SELECT query output regarding the Search Page.
+*/
 class MySQLTable : public QObject
 {
 	Q_OBJECT

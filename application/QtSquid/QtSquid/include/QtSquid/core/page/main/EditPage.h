@@ -3,6 +3,16 @@
 #include <QtSquid/sql/Query.h>
 #include <QtSquid/tool/QStringHelper.h>
 
+/**
+* EditPage class
+*
+* Page used to handle equipment and item related data in MySQL database.
+* Allow to perform 4 basic actions:
+* - Add equipement to the database
+* - Remove equipement from the database
+* - Take equipement if available
+* - Store equipement if existant
+*/
 class EditPage : public Page
 {
 	Q_OBJECT

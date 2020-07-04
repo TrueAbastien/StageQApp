@@ -3,6 +3,11 @@
 #include <QDir>
 #include <QMainWindow>
 
+/**
+* StyleSheetCache class
+*
+* Cache object preloading existing QSS file to change the application windows style.
+*/
 class StyleSheetCache : public QCache<QString, QString>
 {
 public:

@@ -1,6 +1,13 @@
 #pragma once
 #include <QtSquid/core/page/Page.h>
 
+/**
+* ConnectionPage class
+*
+* Page used to handle connection local and database-sided settings.
+* Allow user to change its username & password or to change connected
+* database IP address & surename.
+*/
 class ConnectionPage : public Page
 {
 	Q_OBJECT

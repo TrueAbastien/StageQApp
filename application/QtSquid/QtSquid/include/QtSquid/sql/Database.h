@@ -9,6 +9,13 @@
 
 class MySQLTable;
 
+/**
+* Database class
+*
+* Object used to handle MySQL database outputs and inputs.
+* Query are called through this database object.
+* Latest results will be stored through map and can be exported in CSV format.
+*/
 class Database : public QObject
 {
 	Q_OBJECT

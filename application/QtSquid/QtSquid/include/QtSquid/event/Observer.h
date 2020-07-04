@@ -1,6 +1,11 @@
 #pragma once
 #include <QtSquid/event/EventSystem.h>
 
+/**
+* Observer class (deprecated)
+*
+* Interface for Observer Pattern design uses.
+*/
 class Observer
 {
 private:

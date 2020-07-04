@@ -12,6 +12,14 @@ class Page;
 class SettingWindow;
 class CreationWindow;
 
+/**
+* QtSquid class
+*
+* Main Window class used to store and handle the most important propreties.
+* Used as a main class object for the whole application.
+*
+* Will handle every secondary windows and each primary page.
+*/
 class QtSquid : public QMainWindow
 {
 	Q_OBJECT

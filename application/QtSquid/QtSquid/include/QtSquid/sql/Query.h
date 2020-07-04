@@ -1,6 +1,15 @@
 #pragma once
 #include <QStringList>
 
+/**
+* Query class
+*
+* Query object used to execute each Query function of the following action:
+* Select, Insert, Update & Delete.
+*
+* Needs to be executed in Database object.
+* Allow specification of field values, selected columns & conditions (joined by AND logic gate).
+*/
 class Query
 {
 public:

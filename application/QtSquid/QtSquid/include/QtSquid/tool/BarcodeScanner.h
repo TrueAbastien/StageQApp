@@ -5,6 +5,12 @@
 
 class QtSquid;
 
+/**
+* BarcodeScanner class
+*
+* Object used to handle to Barcode Scanner input (succession of keyboard input).
+* Will send out a String data scanned when activated by waiting until no input is sent.
+*/
 class BarcodeScanner : public QObject
 {
 	Q_OBJECT

@@ -2,6 +2,11 @@
 #include <QtSquid/core/page/AdvancedPageDefine.h>
 #include <QtSquid/sql/Query.h>
 
+/**
+* StylesheetSettingPage class
+*
+* Setting page used to pick a preloaded style sheet file.
+*/
 class StylesheetSettingPage : public SettingPage
 {
 	Q_OBJECT
